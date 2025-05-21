@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Info Output Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #output {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Student Information Output Example</h2>
+  <div id="output"></div>
+
+  <script>
+    // Variable declarations
+    let studentName = "Ankit Sabariya";
+    let age = 21;
+    let passed = true;
+
+    // Method 1: Console output
+    console.log("Student Information (Console):");
+    console.log("Name: " + studentName);
+    console.log("Age: " + age);
+    console.log("Passed: " + passed);
+
+    // Method 2: Document write (for demo only)
+    document.write("<hr>");
+    document.write("<h3>Student Info (document.write):</h3>");
+    document.write("Name: " + studentName + "<br>");
+    document.write("Age: " + age + "<br>");
+    document.write("Passed: " + passed + "<br>");
+
+    // Method 3: Alert box
+    alert(`Student Info:\nName: ${studentName}\nAge: ${age}\nPassed: ${passed}`);
+
+    // Method 4: innerHTML to modify an element on the page
+    const outputBox = document.getElementById("output");
+    outputBox.innerHTML = `
+      <h3>Student Info (innerHTML):</h3>
+      Name: ${studentName}<br>
+      Age: ${age}<br>
+      Passed: ${passed}
+    `;
+  </script>
+</body>
+
+</html>

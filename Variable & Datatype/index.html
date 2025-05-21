@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Day - 2</title>
+    <link rel="shortcut icon"
+        href="https://cdn3d.iconscout.com/3d/free/thumb/free-javascript-3d-icon-download-in-png-blend-fbx-gltf-file-formats--html-logo-vue-angular-coding-lang-pack-logos-icons-7577991.png?f=webp"
+        type="image/x-icon">
+</head>
+
+<body>
+    <script>
+        // ✅ var is FUNCTION scoped, not block scoped
+        function vars() {
+            if (true) {
+                var a = 15; // declared inside block, but accessible throughout function
+            }
+            console.log("var a:", a); // ✅ Works because 'var' ignores block {}
+        }
+        vars();
+
+
+        // ✅ let is BLOCK scoped
+        function useLet() {
+            if (true) {
+                let a = 11; // declared in block
+                console.log("let a (inside):", a); // ✅ Works
+            }
+            // console.log(a); ❌ Error: a is not defined outside block
+        }
+        useLet();
+
+
+        // ✅ const is also BLOCK scoped
+        function useConst() {
+            if (true) {
+                const b = 12;
+                console.log("const b (inside):", b); // ✅ Works
+            }
+            // console.log(b); ❌ Error: b is not defined outside block
+        }
+        useConst();
+    </script>
+</body>
+
+</html>
