@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="./output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+    integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+      font-family: "Roboto", sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+   <nav id="topnav"></nav>
+   <nav id="mainnav"></nav>
+ 
+  <!-- Main Navbar Full Width -->
+  
+  <div class="flex justify-center">
+
+    <img src="./Screenshot 2025-05-22 at 9.29.59 AM.png" class="w-[86%] h-[370px] object-cover" alt="">
+  </div>
+  <!-- FILTER BAR -->
+  <section id="Filterbar"></section>
+
+ 
+
+
+  <!-- PRODUCT SECTION -->
+  <section id="productsection"></section>
+
+
+  <script>
+    let topnav = document.getElementById("topnav")
+    topnav.innerHTML =` <div  class="w-full bg-[#134325] text-white flex justify-between items-center h-10 text-xs px-[7%] ">
+    <p><i class="ri-phone-fill"></i>&nbsp;001234567890</p>
+    <p>Get 50% Off on Selected items | Shop Now</p>
+    <p>Eng<i class="ri-arrow-drop-down-line"></i>&nbsp;&nbsp;&nbsp;&nbsp;Location<i class="ri-arrow-drop-down-line"></i>
+    </p>
+  </div>`
+  let mainnav = document.getElementById("mainnav")
+  mainnav.innerHTML = `<div class="w-full  bg-white text-[16px] flex justify-between items-center px-[5%]">
+    <!-- Left 50% -->
+    <div class="w-[70%] flex items-center gap-6 ">
+      <img src="https://t4.ftcdn.net/jpg/02/86/20/27/360_F_286202792_yLD4HEmCF2YpIgevD2sNnOQ8PambyfZn.jpg" alt="logo"
+        class="w-[150px]" />
+      <a class="flex items-center gap-1">Categories <i class="ri-arrow-drop-down-line text-xl"></i></a>
+      <a>Deals</a>
+      <a>What's New</a>
+      <a>Delivery</a>
+    </div>
+    <!-- Right 50% -->
+    <div class="w-[30%] flex items-center justify-start gap-6">
+      <div class="bg-[#F6F6F3] w-[300px] h-10 flex justify-between items-center rounded-full px-4">
+        <input type="text" placeholder="Search Product" class="bg-transparent outline-none w-full text-sm" />
+        <i class="ri-search-line text-gray-500"></i>
+      </div>
+      <p class="flex items-center gap-1"><i class="ri-user-3-line text-lg"></i> Account</p>
+      <p class="flex items-center  gap-1"><i class="ri-shopping-cart-line text-lg"></i> Cart</p>
+    </div>
+  </div>`
+
+    // Step : 1 Create new Element in Memory not in page
+    let element = document.createElement('div')
+    // step : 2 new element ke ander div add kiye
+    element.innerHTML = ` <div class="max-w-[1820px] w-full mx-auto px-[5%] py-4 flex flex-wrap gap-2 items-center justify-between">
+    <div class="flex flex-wrap gap-3">
+      <button class="bg-gray-100 text-sm px-4 py-2 rounded-full flex items-center gap-1">Headphone Type <i class="ri-arrow-down-s-line"></i></button>
+      <button class="bg-gray-100 text-sm px-4 py-2 rounded-full flex items-center gap-1">Price <i class="ri-arrow-down-s-line"></i></button>
+      <button class="bg-gray-100 text-sm px-4 py-2 rounded-full flex items-center gap-1">Review <i class="ri-arrow-down-s-line"></i></button>
+      <button class="bg-gray-100 text-sm px-4 py-2 rounded-full flex items-center gap-1">Color <i class="ri-arrow-down-s-line"></i></button>
+      <button class="bg-gray-100 text-sm px-4 py-2 rounded-full flex items-center gap-1">Material <i class="ri-arrow-down-s-line"></i></button>
+      <button class="bg-gray-100 text-sm px-4 py-2 rounded-full flex items-center gap-1">Offer <i class="ri-arrow-down-s-line"></i></button>
+      <button class="bg-gray-100 text-sm px-4 py-2 rounded-full flex items-center gap-1">All Filters <i class="ri-equalizer-line"></i></button>
+    </div>
+    <button class="bg-gray-100 text-sm px-4 py-2 rounded-full flex items-center gap-1">Sort by <i class="ri-arrow-down-s-line"></i></button>
+  </div>`
+    // Step 3 : html body me id se connect kiya
+    let Filterbar = document.getElementById("Filterbar")
+    // Step 4 : us id k ander ye new element dal diya
+    Filterbar.appendChild(element)
+
+
+    let productsection = document.getElementById("productsection")
+    productsection.innerHTML = ` <div class="max-w-[1820px] w-full mx-auto px-[5%] py-4">
+    <h2 class="text-xl font-semibold mb-4">Headphones For You!</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      <!-- CARD -->
+      <div class="bg-white rounded-xl shadow-sm p-4 relative">
+        <img
+          src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT-dx1tmhjUQoiluCRKuvuUxrY-VYu4mH0h991yjojw5MTvpCFq"
+          alt="" class="w-full h-48 object-contain mb-2" />
+        <button class="absolute top-3 right-3 text-gray-400"><i class="ri-heart-line text-lg"></i></button>
+        <h3 class="font-semibold">Wireless Earbuds, IPX8</h3>
+        <p class="text-sm text-gray-500 mb-1">Organic Cotton, fairtrade certified</p>
+        <p class="font-semibold text-sm mb-1">$89.00</p>
+        <div class="flex items-center text-green-600 text-sm mb-3">
+          <i class="ri-star-fill mr-1 text-xs"></i> 4.5 (121)
+        </div>
+        <button class="bg-black text-white text-sm px-4 py-2 rounded-full">Add to Cart</button>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="bg-white rounded-xl shadow-sm p-4 relative">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxEj7qnRQCq1bKq3sA5i4_zR33PPYioCcKRBneWpF9UdyQKbYrO9crd_sjig4vR8IskSc&usqp=CAU"
+          alt="" class="w-full h-48 object-contain mb-2" />
+        <button class="absolute top-3 right-3 text-gray-400"><i class="ri-heart-line text-lg"></i></button>
+        <h3 class="font-semibold">AirPods Max</h3>
+        <p class="text-sm text-gray-500 mb-1">A perfect balance of high-fidelity audio</p>
+        <p class="font-semibold text-sm mb-1">$559.00</p>
+        <div class="flex items-center text-green-600 text-sm mb-3">
+          <i class="ri-star-fill mr-1 text-xs"></i> 4.5 (121)
+        </div>
+        <button class="bg-green-700 text-white text-sm px-4 py-2 rounded-full">Add to Cart</button>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="bg-white rounded-xl shadow-sm p-4 relative">
+        <img
+          src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/6ec769fa-33f8-4733-8ddb-050885d277f7.__CR146,0,908,1022_PT0_SX200_V1___.png"
+          alt="" class="w-full h-48 object-contain mb-2" />
+        <button class="absolute top-3 right-3 text-gray-400"><i class="ri-heart-line text-lg"></i></button>
+        <h3 class="font-semibold">Bose BT Earphones</h3>
+        <p class="text-sm text-gray-500 mb-1">Table with air purifier, stained venner/black</p>
+        <p class="font-semibold text-sm mb-1">$289.00</p>
+        <div class="flex items-center text-green-600 text-sm mb-3">
+          <i class="ri-star-fill mr-1 text-xs"></i> 4.5 (121)
+        </div>
+        <button class="bg-black text-white text-sm px-4 py-2 rounded-full">Add to Cart</button>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="bg-white rounded-xl shadow-sm p-4 relative">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJAGBi6I6ZR0alXBiPeF3Hs3tv5TUJWhpQ2Z2X4Rd-eoGQQmO3NGtKXEtf3kI3Mx-Yc14&usqp=CAU"
+          alt="" class="w-full h-48 object-contain mb-2" />
+        <button class="absolute top-3 right-3 text-gray-400"><i class="ri-heart-line text-lg"></i></button>
+        <h3 class="font-semibold">VIVEFOX Headphones</h3>
+        <p class="text-sm text-gray-500 mb-1">Wired Stereo Headsets With Mic</p>
+        <p class="font-semibold text-sm mb-1">$39.00</p>
+        <div class="flex items-center text-green-600 text-sm mb-3">
+          <i class="ri-star-fill mr-1 text-xs"></i> 4.5 (121)
+        </div>
+        <button class="bg-black text-white text-sm px-4 py-2 rounded-full">Add to Cart</button>
+      </div>
+
+    </div>
+  </div>`
+  </script>
+</body>
+
+</html>
