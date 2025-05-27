@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login / Forgot Password</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="./login.png" type="image/x-icon">
+    <style>
+        :root {
+            --clr-container-bg: rgba(255, 255, 255, 0.105);
+            --clr-container-border: rgba(255, 255, 255, 0.196);
+            --clr-buttons-bg: rgba(255, 255, 255, 0.209);
+            --clr-highlight: #fff;
+            --clr-btn-text: #111;
+            --clr-btn-shadow: #444;
+            --clr-social-icon: #fff;
+            --clr-input: #fff;
+            --clr-input-border: #fff;
+            --clr-input-placeholder: #fff;
+            --clr-submit-bg: #fff;
+            --clr-submit-text: #111;
+            --clr-submit-border-hover: #fff;
+            --clr-span: #777;
+            --clr-terms: #fff;
+            --clr-terms-link: #aad8d3;
+
+            --box-shadow-buttons: 0 4px 10px 6px rgba(255, 255, 255, 0.15);
+            --box-shadow-submit: 0 4px 55px rgba(255, 255, 255, 0.2);
+
+            --bg-body-gradient: linear-gradient(to right, #155799, #159957);
+
+            --backdrop-form: blur(19px);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        * {
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            display: grid;
+            place-content: center;
+            min-height: 100dvh;
+            background: var(--bg-body-gradient);
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            backdrop-filter: brightness(0.9);
+            z-index: -1;
+        }
+
+        .container {
+            background-color: var(--clr-container-bg);
+            border: 1px solid var(--clr-container-border);
+            backdrop-filter: var(--backdrop-form);
+            position: relative;
+            width: min(380px, 95vw);
+            height: 490px;
+            padding: 5px;
+            border-radius: 2rem;
+            overflow: clip;
+        }
+
+        .container__buttons {
+            background-color: var(--clr-buttons-bg);
+            box-shadow: var(--box-shadow-buttons);
+            position: relative;
+            display: flex;
+            width: 220px;
+            margin: 35px auto;
+            border-radius: 30px;
+        }
+
+        .container__btn-highlight {
+            background: var(--clr-highlight);
+            position: absolute;
+            inset: 0;
+            width: 110px;
+            height: 100%;
+            border-radius: 30px;
+            transition: 0.5s;
+        }
+
+        .container__toggle-btn {
+            background: transparent;
+            color: var(--clr-btn-text);
+            padding: 10px 30px;
+            width: 100%;
+            cursor: pointer;
+            border: 0;
+            outline: none;
+            font-size: 14px;
+            text-transform: capitalize;
+            z-index: 99;
+            transition: 0.3s ease;
+        }
+
+        .container__social-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+        }
+
+        .container__social-icons a {
+            display: block;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .container__social-icons a:hover {
+            scale: 1.2;
+        }
+
+        .container__social-icons svg {
+            color: var(--clr-social-icon);
+            width: 24px;
+            height: 24px;
+        }
+
+        .form {
+            padding-inline: clamp(1rem, 5vw, 2.5rem);
+            position: absolute;
+            left: 0;
+            width: 100%;
+            transform: translateX(0%);
+            transition: transform 0.5s ease;
+        }
+
+        .form__input {
+            width: 100%;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border: 0;
+            border-bottom: 1px solid var(--clr-input-border);
+            outline: none;
+            background: transparent;
+            font-size: 1rem;
+            color: var(--clr-input);
+            caret-color: var(--clr-input-border);
+        }
+
+        .form__input::placeholder {
+            color: var(--clr-input-placeholder);
+        }
+
+        .form__submit-btn {
+            box-shadow: var(--box-shadow-submit);
+            width: 80%;
+            padding: 10px 30px;
+            font-size: 14px;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            color: var(--clr-submit-text);
+            background: var(--clr-submit-bg);
+            border: 0;
+            outline: none;
+            border-radius: 30px;
+            border: 2px solid transparent;
+            transition: 0.3s ease;
+            text-transform: capitalize;
+        }
+
+        .form__submit-btn:hover {
+            background-color: transparent;
+            color: var(--clr-submit-border-hover);
+            border: 2px solid var(--clr-submit-border-hover);
+        }
+
+        .form__options {
+            margin: 20px 0;
+            text-align: right;
+        }
+
+        .form__terms-link {
+            color: var(--clr-terms-link);
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        #login {
+            transform: translateX(0%);
+            top: 190px;
+        }
+
+        #forgot {
+            transform: translateX(100%);
+            top: 165px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container__buttons">
+            <div class="container__btn-highlight"></div>
+            <button type="button" class="container__toggle-btn container__toggle-btn--login">log
+                in</button>
+            <button type="button" class="container__toggle-btn container__toggle-btn--forgot">forgot</button>
+        </div>
+
+        <div class="container__social-icons">
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 4l11.733 16h4.267L8 4z M4 20l6.768-6.768m2.46-2.46l6.772-6.772" />
+                </svg></a>
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M4 8a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" />
+                    <circle cx="12" cy="12" r="3" />
+                    <circle cx="16.5" cy="7.5" r="0.5" />
+                </svg></a>
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                        d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z" />
+                </svg></a>
+        </div>
+
+        <!-- Login -->
+        <form id="login" class="form">
+            <input type="text" id="input1" class="form__input" placeholder="Username" required />
+            <input type="password" id="input2" class="form__input" placeholder="Password" required />
+            <div class="form__options">
+                <a href="#" class="form__terms-link" id="forgotLink">Forgot password?</a>
+            </div>
+            <button type="button" onclick="login()" class="form__submit-btn">log in</button>
+        </form>
+
+        <!-- Forgot Password -->
+        <form id="forgot" class="form">
+            <input type="password" id="input3" class="form__input" placeholder="New Password" required />
+            <input type="password" id="input4" class="form__input" placeholder="Confirm Password" required />
+            <div class="form__options">
+                <a href="#" class="form__terms-link" id="backToLogin">Back to login</a>
+            </div>
+            <button type="button" onclick="Reset()" class="form__submit-btn">Reset password</button>
+        </form>
+    </div>
+
+    <script>
+        const $ = (el) => document.querySelector(el);
+
+        const logInBtn = $(".container__toggle-btn--login");
+        const forgotBtn = $(".container__toggle-btn--forgot");
+        const btnHighlightEl = $(".container__btn-highlight");
+        const loginForm = $("#login");
+        const forgotForm = $("#forgot");
+        const forgotLink = $("#forgotLink");
+        const backToLogin = $("#backToLogin");
+
+        logInBtn.onclick = () => {
+            loginForm.style.transform = "translateX(0%)";
+            forgotForm.style.transform = "translateX(100%)";
+            btnHighlightEl.style.left = "0";
+        };
+
+        forgotBtn.onclick = () => {
+            loginForm.style.transform = "translateX(100%)";
+            forgotForm.style.transform = "translateX(0%)";
+            btnHighlightEl.style.left = "110px";
+        };
+
+        forgotLink.onclick = (e) => {
+            e.preventDefault();
+            forgotBtn.click();
+        };
+
+        backToLogin.onclick = (e) => {
+            e.preventDefault();
+            logInBtn.click();
+        };
+        let Username = "ankit@123";
+        let password = "1234";
+
+        function login() {
+            let input1 = document.getElementById("input1").value;
+            let input2 = document.getElementById("input2").value;
+
+            if (input1 === Username && input2 === password) {
+                alert("✅ Login successful! Welcome back.");
+            } else {
+                alert("❌ Login failed. Please check your username and password.");
+            }
+        }
+        console.log(password)
+        function Reset() {
+            let newpass = document.getElementById("input3").value;
+            let conpass = document.getElementById("input4").value;
+
+            if (newpass == conpass && newpass != password) {
+                alert("✅ Password updated successfully!");
+                password = newpass;
+                console.log(password)
+
+            } else if (newpass == password) {
+                alert("⚠️ New password can’t be the same as the old one!");
+            } else {
+                alert("❌ Passwords don’t match. Please try again.");
+            }
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

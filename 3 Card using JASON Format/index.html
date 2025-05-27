@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    #container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    #container div {
+      width: 300px;
+      background: #1e1e1e;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #container div:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 32px rgba(255, 255, 255, 0.1);
+    }
+
+    #container div img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 2px solid #333;
+    }
+
+    #container div h1 {
+      font-size: 22px;
+      margin: 16px 20px 4px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    #container div span {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 20px 10px;
+      color: #4db8ff;
+    }
+
+    #container div p {
+      font-size: 14px;
+      color: #b0b0b0;
+      margin: 0 20px 16px;
+      line-height: 1.6;
+    }
+
+    #container div button {
+      margin: 0 20px 20px;
+      padding: 10px 0;
+      background: #4db8ff;
+      border: none;
+      border-radius: 8px;
+      color: #121212;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #container div button:hover {
+      background: #2ca0f3;
+      color: #fff;
+    }
+  </style>
+
+  <body>
+    <h1>Card</h1>
+    <header id="container"></header>
+  </body>
+  <script>
+    let container = document.getElementById("container");
+    let cardArray = [
+      {
+        id: 1,
+        img: "https://static0.carbuzzimages.com/wordpress/wp-content/uploads/gallery-images/original/1152000/600/1152643.jpg",
+        title: "G-Wagon",
+        price: "10000",
+        details:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, maxime culpa eius hic officia iusto necessitatibus quas temporibus eaque aut accusantium recusandae, repudiandae exercitationem totam fuga expedita, suscipit neque velit.",
+        btn: "buy Now",
+      },
+      {
+        id: 2,
+        img: "https://www.team-bhp.com/forum/attachments/international-automotive-scene/2125628d1614243782-boxy-suv-designs-making-comeback-lr_def_110_v8_22my_250221_04.jpg",
+        title: "Defender",
+        price: "20000",
+        details:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, maxime culpa eius hic officia iusto necessitatibus quas temporibus eaque aut accusantium recusandae, repudiandae exercitationem totam fuga expedita, suscipit neque velit.",
+        btn: "buy Now",
+      },
+      {
+        id: 3,
+        img: "https://www.usnews.com/object/image/00000190-3ac4-db03-a39f-7ee7b5090000/ext-1-angular-front-24-wrangler.jpg?update-time=1718974186157&size=responsive640",
+        title: "Jeep Wranglor",
+        price: "30000",
+        details:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, maxime culpa eius hic officia iusto necessitatibus quas temporibus eaque aut accusantium recusandae, repudiandae exercitationem totam fuga expedita, suscipit neque velit.",
+        btn: "buy Now",
+      },
+      {
+        id: 4,
+        img: "https://images.unsplash.com/photo-1592853625597-7d17be820d0c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BvcnRzJTIwY2FyfGVufDB8fDB8fHww",
+        title: "Porce",
+        price: "40000",
+        details:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, maxime culpa eius hic officia iusto necessitatibus quas temporibus eaque aut accusantium recusandae, repudiandae exercitationem totam fuga expedita, suscipit neque velit.",
+        btn: "buy Now",
+      },
+      {
+        id: 5,
+        img: "https://imgcdn.stablediffusionweb.com/2024/10/30/f7e32bde-588f-4440-b901-d2f6d8efcfda.jpg",
+        title: "Lamborghini",
+        price: "50000",
+        details:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, maxime culpa eius hic officia iusto necessitatibus quas temporibus eaque aut accusantium recusandae, repudiandae exercitationem totam fuga expedita, suscipit neque velit.",
+        btn: "buy Now",
+      },
+    ];
+
+    for (let i = 0; i < cardArray.length; i++) {
+      let div = document.createElement("div");
+
+      div.innerHTML = `<img src="${cardArray[i].img}" alt="">
+    <h1>${cardArray[i].title}</h1>
+    <span>${cardArray[i].price}</span>
+    <p>${cardArray[i].details}</p>
+    <button>${cardArray[i].btn}</button>`;
+      container.appendChild(div);
+    }
+  </script>
+</html>

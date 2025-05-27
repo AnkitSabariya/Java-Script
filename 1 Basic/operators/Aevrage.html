@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Average Calculator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0e1014;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #e0e0e0;
+    }
+
+    .container {
+      position: relative;
+      background: rgba(40, 44, 52, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      width: 320px;
+      text-align: center;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+      filter: blur(60px);
+      z-index: -1;
+      animation: glowMove 10s infinite linear alternate;
+    }
+
+    @keyframes glowMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(20px, 20px); }
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #ffffff;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.07);
+      color: #ffffff;
+    }
+
+    input::placeholder {
+      color: #bbb;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin-top: 15px;
+      background-color: #3b82f6;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    mark {
+      display: block;
+      margin-top: 20px;
+      font-size: 18px;
+      background-color: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Average Calculator</h2>
+    <input type="text" id="a" placeholder="Enter Maths marks" />
+    <input type="text" id="b" placeholder="Enter English marks" />
+    <input type="text" id="c" placeholder="Enter Science marks" />
+    <button type="button" onclick="avg()">Submit</button>
+    <mark id="ans">Ans is</mark>
+  </div>
+
+  <script>
+    function avg() {
+      let a = Number(document.getElementById("a").value);
+      let b = Number(document.getElementById("b").value);
+      let c = Number(document.getElementById("c").value);
+
+      let ans = document.getElementById("ans");
+      let total = (a + b + c) / 3;
+      ans.innerText = "Average is: " + total.toFixed(2);
+    }
+  </script>
+</body>
+</html>
