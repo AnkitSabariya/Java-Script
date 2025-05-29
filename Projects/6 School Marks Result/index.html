@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎓 School Marks Result</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .bg-decoration {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .floating-icon {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.1;
+        color: white;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-icon:nth-child(1) {
+        top: 10%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .floating-icon:nth-child(2) {
+        top: 20%;
+        right: 10%;
+        animation-delay: 1s;
+      }
+      .floating-icon:nth-child(3) {
+        bottom: 20%;
+        left: 15%;
+        animation-delay: 2s;
+      }
+      .floating-icon:nth-child(4) {
+        bottom: 10%;
+        right: 20%;
+        animation-delay: 3s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        border-radius: 25px;
+        padding: 40px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        animation: slideUp 0.8s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 15px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .subtitle {
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        font-weight: 500;
+      }
+
+      .input-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .input-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      input {
+        width: 100%;
+        padding: 18px 45px 18px 25px; /* Adjusted padding for icon */
+        font-size: 1rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 15px;
+        outline: none;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+        font-weight: 600;
+        color: #333;
+      }
+
+      input:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 25px rgba(102, 126, 234, 0.2);
+
+        transform: translateY(-2px);
+      }
+
+      .input-icon {
+        position: absolute;
+        right: 25px; /* Moved further right to avoid overlapping arrows */
+        top: 50%;
+        transform: translateY(-50%);
+        color: #667eea;
+        font-size: 1.3rem;
+        pointer-events: none; /* Prevents icon from interfering with input */
+      }
+
+      button {
+        padding: 18px 40px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      button:hover::before {
+        left: 100%;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+      }
+
+      button:active {
+        transform: translateY(-1px);
+      }
+
+      .result-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .result {
+        min-width: 140px;
+        text-align: center;
+        padding: 25px 20px;
+        border-radius: 20px;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s ease;
+        opacity: 0.7;
+        transform: scale(0.95);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .result::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s;
+      }
+
+      .result:hover::before {
+        transform: translateX(100%);
+      }
+
+      #a {
+        background: linear-gradient(135deg, #4caf50, #45a049);
+      }
+
+      #b {
+        background: linear-gradient(135deg, #2196f3, #1976d2);
+      }
+
+      #c {
+        background: linear-gradient(135deg, #ff9800, #f57c00);
+      }
+
+      #d {
+        background: linear-gradient(
+          135deg,
+          #f44336,
+          #d32f2f
+        ); /* Ensured red gradient */
+      }
+
+      .result:hover {
+        transform: scale(1.02) translateY(-5px);
+        opacity: 0.9;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .highlight {
+        opacity: 1 !important;
+        transform: scale(1.1) translateY(-8px) !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+        animation: pulse 0.8s ease, glow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1.1) translateY(-8px);
+        }
+        50% {
+          transform: scale(1.15) translateY(-10px);
+        }
+        100% {
+          transform: scale(1.1) translateY(-8px);
+        }
+      }
+
+      @keyframes glow {
+        from {
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25),
+            0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        to {
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25),
+            0 0 30px rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      .grade-icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .grade-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .grade-range {
+        font-size: 0.85rem;
+        opacity: 0.9;
+        font-weight: 500;
+      }
+
+      #invalid {
+        padding: 20px 25px;
+        border-radius: 15px;
+        color: white;
+        background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        display: none;
+        font-weight: 600;
+        font-size: 1rem;
+        box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        animation: shake 0.6s ease;
+        margin-top: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          transform: translateX(-8px);
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+          transform: translateX(8px);
+        }
+      }
+
+      .error-icon {
+        font-size: 1.2rem;
+        margin-right: 8px;
+      }
+
+      .result-message {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 30px 20px;
+          margin: 10px;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .result-box {
+          grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
+          gap: 15px;
+        }
+
+        .result {
+          min-width: 120px;
+          padding: 20px 15px;
+          font-size: 0.9rem;
+        }
+
+        .grade-icon {
+          font-size: 2rem;
+        }
+
+        input {
+          font-size: 1rem;
+          padding: 12px 30px 12px 20px; /* Scaled down padding */
+          transform: scale(0.95); /* Slightly smaller input */
+        }
+
+        button {
+          padding: 15px 35px;
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 1.9rem;
+        }
+
+        .result-box {
+          grid-template-columns: repeat(
+            2,
+            1fr
+          ); /* Force 2 columns even on small screen */
+          gap: 12px;
+        }
+
+        .result {
+          min-width: 100%;
+          padding: 18px 15px;
+          font-size: 0.95rem;
+        }
+
+        input,
+        button {
+          width: 100%;
+          max-width: 260px;
+        }
+
+        input {
+          transform: scale(0.9); /* Further reduce scale on smallest screen */
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .container {
+          background: rgba(30, 30, 30, 0.95);
+          color: white;
+        }
+
+        input {
+          background: #2a2a2a;
+          border-color: #444;
+          color: white;
+        }
+
+        .subtitle {
+          color: #ccc;
+        }
+
+        .result-message {
+          color: #ddd;
+        }
+      }
+
+      .result {
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      .result:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .result:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .result:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .result:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px) scale(0.9);
+        }
+        to {
+          opacity: 0.7;
+          transform: translateY(0) scale(0.95);
+        }
+      }
+
+      .input-success {
+        border-color: #4caf50 !important;
+        box-shadow: 0 0 25px rgba(76, 175, 80, 0.3) !important;
+      }
+      .progress-container {
+        width: 100%;
+        max-width: 300px;
+        background: #e0e0e0;
+        border-radius: 15px;
+        overflow: hidden;
+        height: 20px;
+        margin: 20px auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .progress-bar {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(135deg, #4caf50, #2196f3);
+        transition: width 1s ease-in-out;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .progress-bar::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        animation: shimmer 2s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      .progress-text {
+        margin-top: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .progress-container {
+          max-width: 260px;
+          height: 18px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .progress-container {
+          max-width: 240px;
+          height: 16px;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .progress-container {
+          background: #444;
+        }
+        .progress-text {
+          color: #ddd;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-decoration">
+      <div class="floating-icon">🎓</div>
+      <div class="floating-icon">📚</div>
+      <div class="floating-icon">⭐</div>
+      <div class="floating-icon">🏆</div>
+    </div>
+
+    <div class="container">
+      <h1>🎓 School Marks Result</h1>
+      <p class="subtitle">Enter your marks to see your performance grade</p>
+
+      <div class="input-section">
+        <div class="input-wrapper">
+          <input
+            type="number"
+            id="user"
+            placeholder="Enter your marks (0-100)"
+            min="0"
+            max="100"
+          />
+        </div>
+        <!-- <i class="fas fa-percentage input-icon"></i> -->
+        <button onclick="marks()">
+          <i class="fas fa-calculator"></i> Show Result
+        </button>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="progress-text" id="progress-text">Your Score: 0%</div>
+      </div>
+
+      <div class="result-box">
+        <div id="a" class="result">
+          <span class="grade-icon">🏆</span>
+          <div class="grade-title">Excellent</div>
+          <div class="grade-range">90-100%</div>
+        </div>
+        <div id="b" class="result">
+          <span class="grade-icon">👍</span>
+          <div class="grade-title">Very Good</div>
+          <div class="grade-range">70-89%</div>
+        </div>
+        <div id="c" class="result">
+          <span class="grade-icon">🙂</span>
+          <div class="grade-title">Good</div>
+          <div class="grade-range">33-69%</div>
+        </div>
+        <div id="d" class="result">
+          <span class="grade-icon">❌</span>
+          <div class="grade-title">Fail</div>
+          <div class="grade-range">0-32%</div>
+        </div>
+      </div>
+
+      <div id="invalid">
+        <i class="fas fa-exclamation-triangle error-icon"></i>
+        <span>⚠️ Invalid Marks! Please enter between 0 and 100.</span>
+      </div>
+      <div id="result-message" class="result-message"></div>
+    </div>
+
+    <script>
+      function marks() {
+        let a = document.getElementById("a");
+        let b = document.getElementById("b");
+        let c = document.getElementById("c");
+        let d = document.getElementById("d");
+        let invalid = document.getElementById("invalid");
+        let resultMessage = document.getElementById("result-message");
+        let userInput = document.getElementById("user");
+
+        // Reset styles and messages
+        [a, b, c, d].forEach((el) => {
+          el.classList.remove("highlight");
+          el.style.background = ""; // Reset to CSS-defined gradient
+        });
+        invalid.style.display = "none";
+        resultMessage.innerHTML = "";
+
+        let user = Number(userInput.value);
+        console.log(user);
+
+        if (userInput.value === "" || isNaN(user)) {
+          invalid.innerHTML =
+            '<i class="fas fa-exclamation-triangle error-icon"></i> ⚠️ Please enter a valid number.';
+          invalid.style.display = "block";
+          return;
+        }
+        // In the marks() function, add:
+        let progressBar = document.getElementById("progress-bar");
+        let progressText = document.getElementById("progress-text");
+
+        // Reset progress bar and text
+        progressBar.style.width = "0%";
+        progressText.style.display = "none";
+        progressText.innerHTML = "Your Score: 0%";
+
+        // On valid input (0–100):
+        if (user >= 0 && user <= 100) {
+          progressBar.style.width = `${user}%`;
+          progressText.innerHTML = `Your Score: ${user}%`;
+          progressText.style.display = "block";
+          // Set background based on grade
+          if (user >= 90 && user <= 100) {
+            progressBar.style.background =
+              "linear-gradient(135deg, #4CAF50, #45a049)";
+          } else if (user >= 70 && user < 90) {
+            progressBar.style.background =
+              "linear-gradient(135deg, #2196F3, #1976D2)";
+          } else if (user >= 33 && user < 70) {
+            progressBar.style.background =
+              "linear-gradient(135deg, #FF9800, #F57C00)";
+          } else if (user >= 0 && user < 33) {
+            progressBar.style.background =
+              "linear-gradient(135deg, #f44336, #d32f2f)";
+          }
+        }
+
+        if (user >= 0 && user <= 100) {
+          // Add success animation to input
+          userInput.classList.add("input-success");
+          setTimeout(() => {
+            userInput.classList.remove("input-success");
+          }, 2000);
+
+          if (user >= 90 && user <= 100) {
+            console.log("Excellent");
+            a.classList.add("highlight");
+            resultMessage.innerHTML = `🎉 Excellent! You scored ${user}%!`;
+          } else if (user >= 70 && user < 90) {
+            console.log("Very Good");
+            b.classList.add("highlight");
+            resultMessage.innerHTML = `👍 Very Good! You scored ${user}%!`;
+          } else if (user >= 33 && user < 70) {
+            console.log("Good");
+            c.classList.add("highlight");
+            resultMessage.innerHTML = `🙂 Good! You scored ${user}%!`;
+          } else if (user >= 0 && user < 33) {
+            console.log("Fail");
+            d.classList.add("highlight");
+            resultMessage.innerHTML = `😔 Fail. You scored ${user}%. Try harder next time!`;
+          }
+        } else {
+          console.log("Invalid");
+          invalid.innerHTML =
+            '<i class="fas fa-exclamation-triangle error-icon"></i> ⚠️ Invalid Marks! Please enter between 0 and 100.';
+          invalid.style.display = "block";
+        }
+      }
+
+      // Enter key support
+      document
+        .getElementById("user")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            marks();
+          }
+        });
+
+      // Input validation
+      document.getElementById("user").addEventListener("input", function (e) {
+        const value = parseFloat(e.target.value);
+        if (value > 100) {
+          e.target.value = 100;
+        } else if (value < 0) {
+          e.target.value = 0;
+        }
+      });
+    </script>
+  </body>
+</html>
