@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="a" placeholder="Enter Value" />
+
+    <select id="operation">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+
+    <input type="text" id="b" placeholder="Enter Value" />
+    <button onclick="btn()">Ans</button>
+    <button onclick="Clear()">Clear</button>
+    <h1 id="ans"></h1>
+  </body>
+  <script>
+    let ans = document.getElementById("ans");
+    function btn() {
+      let a = +document.getElementById("a").value;
+      let b = Number(document.getElementById("b").value);
+      let operation = document.getElementById("operation").value;
+      console.log(operation);
+
+      let result;
+
+      switch (operation) {
+        case "+":
+          result = a + b;
+          ans.innerText = `Sum: ${a} + ${b} = ${result}`;
+          break;
+
+        case "-":
+          result = a - b;
+          ans.innerText = `Subtraction: ${a} - ${b} = ${result}`;
+          break;
+
+        case "*":
+          result = a * b;
+          ans.innerText = `Multiplication: ${a} X ${b} = ${result}`;
+          break;
+
+        case "/":
+          if (b === 0) {
+            ans.innerText = "❌ Cannot divide by zero!";
+          } else {
+            result = a / b;
+            ans.innerText = `Division: ${a} ÷ ${b} = ${result}`;
+          }
+          break;
+      }
+      
+    }
+    function Clear() {
+        let remove_a = document.getElementById("a");
+        let remove_b = document.getElementById("b");
+        let remove_operation = document.getElementById("operation");
+        remove_a.value = ``;
+        remove_b.value = ``;
+        remove_operation.value = ``;
+      }
+  </script>
+</html>

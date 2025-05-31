@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="a" placeholder="Odd or even">
+    <button onclick="odd()">odd or even</button>
+    <h1 id="h1">fdbf</h1>
+</body>
+<script>
+    let h1 = document.getElementById("h1")
+    function odd() {
+        let a = document.getElementById("a").value
+        if (a % 2 == 0) {
+            h1.innerText = `${a} : Is Even`
+            console.log(+a)
+        }
+        else {
+            h1.innerText = `${a} : Is Odd`
+             console.log(+a)
+        }
+
+        let remove = document.getElementById("a")
+        remove.value = ``
+    }
+</script>
+
+</html>
