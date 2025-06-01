@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="user" />
+    <button onclick="btn()">Reverce</button>
+    <h1 id="ans"></h1>
+  </body>
+  <script>
+    let ans = document.getElementById("ans");
+    function btn() {
+      let user = document.getElementById("user").value;
+      console.log(user);
+      let print = "";
+      // Ankit
+      for (let i = user.length - 1; i >= 0; i--) {
+        // t || i || k || n || A
+        print = print + user[i]; // tiknA print perticular char frome string 
+        console.log(i, print); // 0-t,1-i,2-k,3-n,4-A
+      }
+      if (user == print) {
+        ans.innerText = `${user} = ${print}`;
+      } else {
+        ans.innerText = `${user} != ${print}`;
+      }
+    }
+  </script>
+</html>

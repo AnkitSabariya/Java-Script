@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <center>
+      <input type="text" id="user" placeholder="Enter Array Size" />
+      <button onclick="btn()">Factorial</button>
+    </center>
+    <h1 id="ans"></h1>
+  </body>
+  <script>
+    let ans = document.getElementById("ans");
+    let anss = document.getElementById("ans").value;
+    let sum
+    function btn() {
+      let user = +document.getElementById("user").value;
+
+      for (let i = 0; i < user; i++) {
+        let newinput = document.createElement("input");
+        newinput.innerHTML = ` <input type="text"  /> + `;
+        newinput.innerText = `${i} :`;
+        ans.appendChild(newinput);
+        console.log(anss[i])
+      }
+     user.forEach(element => {
+        sum +=user
+        console.log(sum)
+      });
+
+    }
+  </script>
+</html>

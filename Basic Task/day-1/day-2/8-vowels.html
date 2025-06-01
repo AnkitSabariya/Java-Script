@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="user" />
+    <button onclick="btn()">count</button>
+    <h1 id="counter"></h1>
+    
+  </body>
+  <script>
+    let count = 0;
+    let counter = document.getElementById("counter");
+    function btn() {
+      let user = document.getElementById("user").value;
+      //   let box = ["ankit", "magan"];
+      // box.includes(user)
+      // Check krse aakhi string ne full name same hse toj count ++
+      let box = ["a", "e", "i", "o", "u"];
+      for (let i = 0; i < user.length; i++) {
+        if (box.includes(user[i])) {
+            console.log(user[i]);
+            foundVowels += user[i] + " ";
+            
+          count++;
+        }
+    }
+    counter.innerText = `Total Vowels : ${user[i]} ${count}`;
+      console.log(count);
+    }
+  </script>
+</html>

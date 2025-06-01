@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="user" />
+    <button onclick="btn()">prime</button>
+    <h1 id="ans"></h1>
+  </body>
+  <script>
+    let ans = document.getElementById("ans");
+    function btn() {
+      let user = +document.getElementById("user").value;
+      let prime = 0;
+
+      for (let i = 1; i <= user; i++) {
+        if (i % 5 === 0 && i % 3 === 0) {
+          console.log("FizzBuzz");
+          ans.innerText += `FizzBuzz -> ${i} \n`;
+        } else if (i % 3 === 0) {
+          console.log("Fizz");
+          ans.innerText += `Fizz -> ${i} \n`;
+        } else if (i % 5 === 0) {
+          console.log("Buzz");
+          ans.innerText+= `Buzz -> ${i} \n`;
+        } else {
+          console.log(i);
+          ans.innerText += ` ${i} \n`;
+        }
+      }
+    }
+  </script>
+</html>
