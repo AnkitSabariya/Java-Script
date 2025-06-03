@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Navbar & Footer Modular</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header id="header"></header>
+
+    <!-- Herosection -->
+  <main id="main-content"></main>
+
+    <!-- FooterSection -->
+  <section id="footer-section"></section>
+
+  <script type="module">
+    import navbar from './nav.js';
+    import footer from './footer.js';
+    import herosec from './hero.js';
+
+    document.getElementById("header").appendChild(navbar());
+    document.getElementById("main-content").appendChild(herosec());
+    document.getElementById("footer-section").appendChild(footer());
+  </script>
+</body>
+</html>

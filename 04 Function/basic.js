@@ -20,5 +20,9 @@ let arrowFunc = () => {
     console.log("✅ I'm an Arrow Function");
 };
 arrowFunc();
+if (false) {
+    console.log("he");
+    
+}
 
 

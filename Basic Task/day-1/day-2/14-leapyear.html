@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="user">
+    <button onclick="btn()">button</button>
+    <h1 id="leapyear"></h1>
+</body>
+<script>
+    let leapyear =  document.getElementById("leapyear")
+    function btn() {
+        let user =  +document.getElementById("user").value
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+        {
+            leapyear.innerText = `Yes Leap year`
+        }
+        else{
+            leapyear.innerText = `No Leap year`
+
+        }
+
+        
+    }
+</script>
+</html>
