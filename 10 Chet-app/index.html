@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Chat App</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat-container {
+  width: 360px;
+  height: 560px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  background: #0078ff;
+  color: white;
+  padding: 16px;
+  text-align: center;
+  position: relative;
+}
+
+.chat-header select {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+.chat-box {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #eef2f7;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message {
+  display: flex;
+  max-width: 75%;
+  align-items: center;
+}
+
+.message.user-a {
+  align-self: flex-start;
+  flex-direction: row;
+}
+
+.message.user-b {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.message .avatar {
+  width: 30px;
+  height: 30px;
+  background: #555;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  margin: 0 8px;
+}
+
+.message .text {
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.user-a .text {
+  background: #d3d3d3;
+  color: #000;
+}
+
+.user-b .text {
+  background: #0078ff;
+  color: white;
+}
+
+.chat-input {
+  display: flex;
+  padding: 12px;
+  border-top: 1px solid #ccc;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 20px;
+  margin-right: 8px;
+  outline: none;
+}
+
+.chat-input button {
+  padding: 10px 16px;
+  border: none;
+  background: #0078ff;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>Simple Chat App</h2>
+      <select id="userSelect">
+        <option value="a">User A</option>
+        <option value="b">User B</option>
+      </select>
+    </div>
+
+    <div class="chat-box" id="chatBox"></div>
+
+    <div class="chat-input">
+      <input type="text" id="messageInput" placeholder="Type a message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script >
+function sendMessage() {
+  const input = document.getElementById("messageInput");
+  const chatBox = document.getElementById("chatBox");
+  const user = document.getElementById("userSelect").value;
+  const message = input.value.trim();
+
+  if (message === "") return;
+
+  const messageDiv = document.createElement("div");
+  messageDiv.classList.add("message", user === "a" ? "user-a" : "user-b");
+
+  const avatar = document.createElement("div");
+  avatar.classList.add("avatar");
+  avatar.textContent = user.toUpperCase();
+
+  const text = document.createElement("div");
+  text.classList.add("text");
+  text.textContent = message;
+
+  messageDiv.appendChild(avatar);
+  messageDiv.appendChild(text);
+  chatBox.appendChild(messageDiv);
+
+  input.value = "";
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+  </script>
+</body>
+</html>

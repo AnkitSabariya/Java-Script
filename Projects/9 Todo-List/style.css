@@ -15,6 +15,7 @@
     --frame-shadow: rgba(59, 130, 246, 0.2);
     --battery-color: #10b981;
     --app-height: 100vh;
+    --text-tertiary: #999999;
 }
 
 .dark-mode {
@@ -42,11 +43,13 @@
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     user-select: none;
+  
 }
 
 html, body {
     height: 100%;
     overflow: hidden;
+  
 }
 
 body {
@@ -58,6 +61,7 @@ body {
     justify-content: center;
     transition: background 0.3s ease;
     overscroll-behavior: none;
+   
 }
 
 .container {
@@ -283,15 +287,91 @@ body {
 .add-todo-section {
     margin-bottom: min(32px, 8vw);
 }
-
+.delete-all-button {
+    display: none; /* Toggle with JS */
+    align-items: center;
+    justify-content: center;
+    gap: min(6px, 1.5vw);
+    padding: min(14px, 2.5vw) min(16px, 4vw);
+    background: rgba(239, 68, 68, 0.08); /* softer red background */
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 9999px; /* Fully pill-shaped like iOS */
+    font-size: min(15px, 4vw);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(6px); /* slight iOS glass effect */
+    -webkit-tap-highlight-color: transparent;
+}
+button:hover{
+    cursor: pointer;
+}
 .input-container {
     display: flex;
     background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
+    border: 2px solid var(--border-primary);
     border-radius: min(24px, 6vw);
     padding: min(20px, 5vw);
     box-shadow: 0 10px 25px -5px var(--shadow-light);
+    transition: all 0.3s ease;
 }
+.input-container:focus-within {
+    border-color: #3b82f6;
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+}
+/* Empty State */
+.empty-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: min(60px, 15vw) min(20px, 5vw);
+    color: var(--text-tertiary);
+    animation: fadeIn 0.3s ease-in-out;
+    transition: all 0.3s ease;
+}
+
+.empty-icon {
+    margin-bottom: min(20px, 5vw);
+    opacity: 0.4;
+    scale: 1.1;
+    transition: transform 0.3s;
+}
+
+.empty-state h3 {
+    font-size: min(20px, 5vw);
+    font-weight: 600;
+    margin-bottom: min(8px, 2vw);
+    color: var(--text-secondary);
+    letter-spacing: 0.3px;
+}
+
+.empty-state p {
+    font-size: min(15px, 4vw);
+    opacity: 0.75;
+    max-width: 280px;
+    line-height: 1.4;
+}
+.empty-icon svg {
+    stroke: currentColor;
+    color: var(--text-tertiary);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 
 .todo-input {
     flex: 1;
@@ -333,7 +413,7 @@ body {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: min(16px, 4vw);
+    /* gap: min(16px, 40px); */
     padding-bottom: min(80px, 20vw);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
@@ -353,6 +433,7 @@ body {
     box-shadow: 0 4px 6px -1px var(--shadow-light);
     transition: all 0.3s ease;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .todo-item:active {
@@ -500,7 +581,28 @@ body {
     background: var(--text-tertiary);
     border-radius: min(2px, 0.5vw);
     opacity: 0.3;
-}
+    animation: homePulse 2.5s ease-in-out infinite;
+    transition: all 0.3s ease;
+  }
+  
+  @keyframes homePulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translateX(-50%) scaleX(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateX(-50%) scaleX(1.05);
+    }
+  }
+  
+  .home-indicator:hover {
+    opacity: 0.6;
+    transform: translateX(-50%) scaleX(1.08) translateY(-2px);
+    background: var(--text-tertiary);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  }
+  
 
 /* Animations */
 @keyframes slideInUp {
