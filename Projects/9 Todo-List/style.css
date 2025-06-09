@@ -391,6 +391,8 @@ button:hover{
     margin-left: min(16px, 4vw);
     width: min(48px, 12vw);
     height: min(48px, 12vw);
+    max-width: 48px;
+    max-height: 48px;
     border-radius: 50%;
     background: linear-gradient(135deg, #3b82f6, #8b5cf6);
     color: white;
@@ -401,7 +403,19 @@ button:hover{
     cursor: pointer;
     box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
     transition: transform 0.2s ease;
-}
+    /* Prevent content inside button from stretching */
+    overflow: hidden;
+  }
+  
+  @media (max-width: 400px) {
+    .add-button {
+      width: 12vw;  /* relative smaller on very small screens */
+      height: 12vw;
+      max-width: 40px;
+      max-height: 40px;
+    }
+  }
+  
 
 .add-button:active {
     transform: scale(0.95);
