@@ -1,216 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile Chat App</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-</head>
-<body>
-  <!-- Theme Toggle -->
-  <div class="theme-toggle">
-    <button class="theme-btn" onclick="toggleTheme()">
-      <div class="theme-icon">🌙</div>
-    </button>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Chat App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+      <button class="theme-btn" onclick="toggleTheme()">
+        <div class="theme-icon">🌙</div>
+      </button>
+    </div>
 
-  <div class="container">
-    <div class="phone iphone">
-      <div class="phone-frame">
-        <div class="notch">
-          <div class="notch-camera"></div>
-          <div class="notch-speaker"></div>
-        </div>
-        <div class="status-bar">
-          <div class="time">9:41</div>
-          <div class="status-icons">
-            <div class="signal-icon"></div>
-            <div class="wifi-icon"></div>
-            <div class="battery-icon"></div>
+    <div class="container">
+      <div class="phone iphone">
+        <div class="phone-frame">
+          <div class="notch">
+            <div class="notch-camera"></div>
+            <div class="notch-speaker"></div>
           </div>
-        </div>
-        <div class="chat-app">
-          <div class="chat-header">
-            <div class="back-button">
-              <div class="back-arrow"></div>
+          <div class="status-bar">
+            <div class="time" id="time">9:43</div>
+            <div class="status-icons">
+              <div class="signal-icon"></div>
+              <div class="wifi-icon"></div>
+              <div class="battery-icon"></div>
             </div>
-            <div class="user-info">
-              <div class="avatar">
-                <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
-                <div class="online-indicator"></div>
+          </div>
+          <div class="chat-app">
+            <div class="chat-header">
+              <div class="back-button">
+                <div class="back-arrow"></div>
               </div>
-              <div class="user-details">
-                <div class="user-name">Sarah Johnson</div>
-                <div class="user-status">
-                  <div class="status-dot"></div>
-                  <span>Online</span>
+              <div class="user-info">
+                <div class="avatar">
+                  <img
+                    src="/placeholder.svg?height=40&width=40"
+                    alt="User Avatar"
+                  />
+                  <div class="online-indicator"></div>
+                </div>
+                <div class="user-details">
+                  <div class="user-name">Sarah Johnson</div>
+                  <div class="user-status">
+                    <div class="status-dot"></div>
+                    <span>Online</span>
+                  </div>
+                </div>
+              </div>
+              <div class="header-actions">
+                <div class="video-call-icon"></div>
+                <div class="call-icon"></div>
+              </div>
+            </div>
+            <div class="chat-messages" id="iphone-container">
+              <div class="message-wallpaper"></div>
+              <div class="message-date">Today</div>
+
+              <div class="message received">
+                <div class="message-content">Hey! How's your day going? 😊</div>
+                <div class="message-time">10:23 AM</div>
+              </div>
+              <div class="message sent">
+                <p class="message-content">Not yet! Is it anygu good?</p>
+                <span class="message-time">9:18 AM</span>
+              </div>
+
+              <div class="message received typing">
+                <div class="typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
               </div>
             </div>
-            <div class="header-actions">
-              <div class="video-call-icon"></div>
-              <div class="call-icon"></div>
-            </div>
-          </div>
-          <div class="chat-messages">
-            <div class="message-wallpaper"></div>
-            <div class="message-date">Today</div>
-            <div class="message received">
-              <div class="message-content">Hey! How's your day going? 😊</div>
-              <div class="message-time">10:23 AM</div>
-            </div>
-            <div class="message sent">
-              <div class="message-content">Pretty good! Just finished that project we talked about. 🎉</div>
-              <div class="message-time">10:25 AM</div>
-            </div>
-            <div class="message received">
-              <div class="message-content">That's awesome! Can you send me some photos of the final result?</div>
-              <div class="message-time">10:26 AM</div>
-            </div>
-            <div class="message sent">
-              <div class="message-content">Sure thing! I'll send them over in a bit. 📸</div>
-              <div class="message-time">10:28 AM</div>
-            </div>
-            <div class="message sent">
-              <div class="message-content">By the way, are we still meeting for coffee tomorrow?</div>
-              <div class="message-time">10:29 AM</div>
-            </div>
-            <div class="message received typing">
-              <div class="typing-indicator">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="chat-input">
+              <div class="attachment-button">
+                <div class="plus-icon"></div>
+              </div>
+              <div class="message-input">
+                <input type="text" placeholder="Message" id="appleinput" />
+              </div>
+              <div class="send-button" onclick="iphone()">
+                <div class="send-icon"></div>
               </div>
             </div>
+            <div class="home-indicator"></div>
           </div>
-          <div class="chat-input">
-            <div class="attachment-button">
-              <div class="plus-icon"></div>
-            </div>
-            <div class="message-input">
-              <input type="text" placeholder="Message">
-            </div>
-            <div class="send-button">
-              <div class="send-icon"></div>
+        </div>
+      </div>
+
+      <div class="phone samsung">
+        <div class="phone-frame">
+          <div class="camera-cutout">
+            <div class="camera-lens"></div>
+          </div>
+          <div class="status-bar">
+            <div class="time" id="timer">9:41</div>
+            <div class="status-icons">
+              <div class="signal-icon"></div>
+              <div class="wifi-icon"></div>
+              <div class="battery-icon"></div>
             </div>
           </div>
-          <div class="home-indicator"></div>
+          <div class="chat-app">
+            <div class="chat-header samsung-header">
+              <div class="back-button">
+                <div class="back-arrow"></div>
+              </div>
+              <div class="user-info">
+                <div class="avatar">
+                  <img
+                    src="/placeholder.svg?height=40&width=40"
+                    alt="User Avatar"
+                  />
+                  <div class="online-indicator"></div>
+                </div>
+                <div class="user-details">
+                  <div class="user-name">Alex Chen</div>
+                  <div class="user-status">
+                    <div class="status-dot"></div>
+                    <span>Last seen 5m ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="header-actions">
+                <div class="video-call-icon"></div>
+                <div class="call-icon"></div>
+              </div>
+            </div>
+            <div class="chat-messages" id="samsung-container">
+              <div class="message-wallpaper samsung-wallpaper"></div>
+              <div class="message-date">Today</div>
+              <div class="message received">
+                <div class="message-content">
+                  Hey, did you check out that new restaurant downtown? 🍽️
+                </div>
+                <div class="message-time">9:15 AM</div>
+              </div>
+              <div class="message sent">
+                <div class="message-content">Not yet! Is it any good?</div>
+                <div class="message-time">9:18 AM</div>
+              </div>
+              <div class="message received typing">
+                <div class="typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <div class="chat-input samsung-input">
+              <div class="attachment-button">
+                <div class="plus-icon"></div>
+              </div>
+              <div class="message-input">
+                <input type="text" placeholder="Message" id="samsunginput" />
+              </div>
+              <div class="send-button"  onclick="samsung()">
+                <div class="send-icon"></div>
+              </div>
+            </div>
+            <div class="navigation-bar">
+              <div class="nav-button"></div>
+              <div class="nav-button"></div>
+              <div class="nav-button"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="phone samsung">
-      <div class="phone-frame">
-        <div class="camera-cutout">
-          <div class="camera-lens"></div>
-        </div>
-        <div class="status-bar">
-          <div class="time">9:41</div>
-          <div class="status-icons">
-            <div class="signal-icon"></div>
-            <div class="wifi-icon"></div>
-            <div class="battery-icon"></div>
-          </div>
-        </div>
-        <div class="chat-app">
-          <div class="chat-header samsung-header">
-            <div class="back-button">
-              <div class="back-arrow"></div>
-            </div>
-            <div class="user-info">
-              <div class="avatar">
-                <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
-                <div class="online-indicator"></div>
-              </div>
-              <div class="user-details">
-                <div class="user-name">Alex Chen</div>
-                <div class="user-status">
-                  <div class="status-dot"></div>
-                  <span>Last seen 5m ago</span>
-                </div>
-              </div>
-            </div>
-            <div class="header-actions">
-              <div class="video-call-icon"></div>
-              <div class="call-icon"></div>
-            </div>
-          </div>
-          <div class="chat-messages">
-            <div class="message-wallpaper samsung-wallpaper"></div>
-            <div class="message-date">Today</div>
-            <div class="message received">
-              <div class="message-content">Hey, did you check out that new restaurant downtown? 🍽️</div>
-              <div class="message-time">9:15 AM</div>
-            </div>
-            <div class="message sent">
-              <div class="message-content">Not yet! Is it any good?</div>
-              <div class="message-time">9:18 AM</div>
-            </div>
-            <div class="message received">
-              <div class="message-content">It's amazing! The food is incredible and the atmosphere is perfect for a night out. ✨</div>
-              <div class="message-time">9:20 AM</div>
-            </div>
-            <div class="message received">
-              <div class="message-content">We should go there this weekend!</div>
-              <div class="message-time">9:21 AM</div>
-            </div>
-            <div class="message sent">
-              <div class="message-content">Sounds like a plan! What time works for you? 🕐</div>
-              <div class="message-time">9:25 AM</div>
-            </div>
-            <div class="message received">
-              <div class="message-content">How about Saturday at 7pm?</div>
-              <div class="message-time">9:26 AM</div>
-            </div>
-          </div>
-          <div class="chat-input samsung-input">
-            <div class="attachment-button">
-              <div class="plus-icon"></div>
-            </div>
-            <div class="message-input">
-              <input type="text" placeholder="Message">
-            </div>
-            <div class="send-button">
-              <div class="send-icon"></div>
-            </div>
-          </div>
-          <div class="navigation-bar">
-            <div class="nav-button"></div>
-            <div class="nav-button"></div>
-            <div class="nav-button"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function toggleTheme() {
-      const body = document.body;
-      const themeIcon = document.querySelector('.theme-icon');
-      
-      if (body.classList.contains('dark-theme')) {
-        body.classList.remove('dark-theme');
-        themeIcon.textContent = '🌙';
-        localStorage.setItem('theme', 'light');
-      } else {
-        body.classList.add('dark-theme');
-        themeIcon.textContent = '☀️';
-        localStorage.setItem('theme', 'dark');
-      }
-    }
-
-    // Load saved theme
-    document.addEventListener('DOMContentLoaded', function() {
-      const savedTheme = localStorage.getItem('theme');
-      const themeIcon = document.querySelector('.theme-icon');
-      
-      if (savedTheme === 'dark') {
-        document.body.classList.add('dark-theme');
-        themeIcon.textContent = '☀️';
-      }
-    });
-  </script>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>

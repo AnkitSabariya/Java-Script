@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - TechHub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1><i class="fas fa-bolt"></i> TechHub</h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="./index.html" class="nav-link">Home</a></li>
+                        <li><a href="#"  class="nav-link">Products</a></li>
+                        <li><a href="#" class="nav-link">Categories</a></li>
+                        <li><a href="#" class="nav-link">Deals</a></li>
+                        <li><a href="#" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <a href="./cart.html" class="cart-btn active">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">3</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Shopping Cart</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <h1 class="page-title">Shopping Cart</h1>
+            
+            <div class="cart-layout">
+                <!-- Cart Items -->
+                <div class="cart-items" id="cart-items">
+                    <div class="cart-header">
+                        <h2>Your Items (3)</h2>
+                    </div>
+
+                    <!-- Cart Item 1 -->
+                    <div class="cart-item">
+                        <div class="item-image">
+                            <img src="images/wireless-earbuds.jpg" alt="Wireless Earbuds Pro">
+                        </div>
+                        <div class="item-details">
+                            <h3>Wireless Earbuds Pro</h3>
+                            <p class="item-category">Audio</p>
+                            <div class="item-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>(4.9)</span>
+                            </div>
+                        </div>
+                        <div class="item-quantity">
+                            <label>Qty:</label>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="item-price">
+                            <span class="current-price">$149.99</span>
+                            <span class="old-price">$199.99</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="remove-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Cart Item 2 -->
+                    <div class="cart-item">
+                        <div class="item-image">
+                            <img src="images/smartphone.jpg" alt="iPhone 15 Pro">
+                        </div>
+                        <div class="item-details">
+                            <h3>iPhone 15 Pro</h3>
+                            <p class="item-category">Smartphones</p>
+                            <div class="item-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span>(4.7)</span>
+                            </div>
+                        </div>
+                        <div class="item-quantity">
+                            <label>Qty:</label>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="item-price">
+                            <span class="current-price">$999.99</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="remove-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Cart Item 3 -->
+                    <div class="cart-item">
+                        <div class="item-image">
+                            <img src="images/portable-speaker.jpg" alt="Portable Bluetooth Speaker">
+                        </div>
+                        <div class="item-details">
+                            <h3>Portable Bluetooth Speaker</h3>
+                            <p class="item-category">Audio</p>
+                            <div class="item-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span>(4.5)</span>
+                            </div>
+                        </div>
+                        <div class="item-quantity">
+                            <label>Qty:</label>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="2" min="1">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="item-price">
+                            <span class="current-price">$79.99</span>
+                            <span class="old-price">$99.99</span>
+                        </div>
+                        <div class="item-actions">
+                            <button class="remove-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+                        
+                        <div class="summary-row">
+                            <span>Subtotal (4 items)</span>
+                            <span>$1,309.97</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span class="free">Free</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span>$104.80</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span>$1,414.77</span>
+                        </div>
+                        
+                        <div class="promo-code">
+                            <input type="text" placeholder="Enter promo code">
+                            <button class="apply-btn">Apply</button>
+                        </div>
+                        
+                        <button class="checkout-btn">
+                            <i class="fas fa-lock"></i>
+                            Proceed to Checkout
+                        </button>
+                        
+                        <div class="payment-methods">
+                            <p>We accept:</p>
+                            <div class="payment-icons">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                <i class="fab fa-cc-paypal"></i>
+                                <i class="fab fa-apple-pay"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="shipping-info">
+                        <h4><i class="fas fa-truck"></i> Free Shipping</h4>
+                        <p>Your order qualifies for free shipping! Estimated delivery: 3-5 business days</p>
+                    </div>
+                    
+                    <div class="return-policy">
+                        <h4><i class="fas fa-undo"></i> Easy Returns</h4>
+                        <p>30-day hassle-free returns on all items</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="continue-shopping">
+                <a href="index.html" class="continue-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Continue Shopping
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Products -->
+    <section class="recommended">
+        <div class="container">
+            <h2>You Might Also Like</h2>
+            <div class="recommended-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/smart-watch.jpg" alt="Apple Watch Ultra">
+                    </div>
+                    <div class="product-info">
+                        <h3>Apple Watch Ultra</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.9)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$799.99</span>
+                        </div>
+                        <button class="add-to-cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/gaming-headset.jpg" alt="Gaming Headset Pro">
+                    </div>
+                    <div class="product-info">
+                        <h3>Gaming Headset Pro</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.9)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$299.99</span>
+                        </div>
+                        <button class="add-to-cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/fitness-tracker.jpg" alt="Fitness Tracker Pro">
+                    </div>
+                    <div class="product-info">
+                        <h3>Fitness Tracker Pro</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(4.4)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$199.99</span>
+                        </div>
+                        <button class="add-to-cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-bolt"></i> TechHub</h3>
+                    <p>Your trusted destination for the latest technology and electronics.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Laptops</a></li>
+                        <li><a href="#">Smartphones</a></li>
+                        <li><a href="#">Audio</a></li>
+                        <li><a href="#">Cameras</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>

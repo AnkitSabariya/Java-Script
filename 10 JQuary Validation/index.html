@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative jQuery Validation Form</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Remix Icon CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; font-family: 'Poppins', sans-serif; margin:0; padding:0; }
+    body {
+      background: linear-gradient(135deg, #f2f4f7, #d9e2ec);
+      display:flex; justify-content:center; align-items:center; height:100vh;
+    }
+    .form-container {
+      background:#fff; padding:35px 30px; border-radius:16px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.1); max-width:420px; width:100%;
+    }
+    .form-container h2 { text-align:center; margin-bottom:28px; font-weight:600; color:#222; }
+    .form-group { position:relative; margin-bottom:24px; }
+    .form-group label {
+      font-size:14px; color:#555; display:block; margin-bottom:6px;
+    }
+    .form-group i {
+      position:absolute; top:44px; left:10px; color:#aaa;
+    }
+    .form-group input {
+      width:100%; padding:12px 12px 12px 36px; font-size:15px;
+      border:1px solid #ccc; border-radius:10px; transition:0.3s;
+      background-color:#f9f9f9;
+    }
+    .form-group input:focus {
+      border-color:#007bff; outline:none; background:#fff;
+    }
+    .form-group .error {
+      color:red; font-size:13px; margin-top:4px; display:block;
+    }
+    input.error { border:2px solid red; background:#fff1f1; }
+    .submit-btn {
+      width:100%; padding:14px; font-size:16px; font-weight:600;
+      border:none; border-radius:12px;
+      background:linear-gradient(to right, #00c6ff, #0072ff);
+      color:white; cursor:pointer; transition:0.3s ease;
+    }
+    .submit-btn:hover {
+      background:linear-gradient(to right, #0072ff, #00c6ff);
+      transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,114,255,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2><i class="ri-user-add-line ri-fw ri-lg"></i> Register</h2>
+    <form id="myForm" novalidate>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <i class="ri-user-line ri-fw"></i>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <i class="ri-mail-line ri-fw"></i>
+        <input type="email" name="email" id="email" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <i class="ri-lock-2-line ri-fw"></i>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <i class="ri-lock-password-line ri-fw"></i>
+        <input type="password" name="confirm_password" id="confirm_password" />
+      </div>
+      <button type="submit" class="submit-btn">
+        <i class="ri-send-plane-line ri-fw"></i> Submit
+      </button>
+    </form>
+  </div>
+
+  <!-- jQuery & Validation -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $("#myForm").validate({
+        rules: {
+          name: { required: true, minlength: 3, maxlength: 10 },
+          email: { required: true, email: true },
+          password: { required: true, minlength: 6 },
+          confirm_password: { required: true, equalTo: "#password" },
+        },
+        messages: {
+          name: {
+            required: "Name Nakho Bhai",
+            minlength: "3 Ochhama Ochha",
+            maxlength: "10 Vadhuma Vadhu",
+          },
+          email: {
+            required: "Email Nakho Bhai",
+            email: "Valid Email Nakho Bhai",
+          },
+          password: {
+            required: "Password Nakho Bhai",
+            minlength: "6 Ochhama Ochha",
+          },
+          confirm_password: {
+            required: "Confirm Password Nakho Bhai",
+            equalTo: "Password Same Nahi Hai",
+          },
+        },
+      
+      });
+    });
+  </script>
+</body>
+</html>

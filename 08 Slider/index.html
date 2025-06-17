@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Image Slider</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Image Slider Practice</h1>
+
+      <!-- Slider Container -->
+      <div class="slider" id="slider">
+        <!-- Slides -->
+        <div class="slides" id="slides">
+          <div class="slide">
+            <img
+              src="https://t4.ftcdn.net/jpg/04/15/79/09/360_F_415790935_7va5lMHOmyhvAcdskXbSx7lDJUp0cfja.jpg"
+              alt="Image 1"
+            />
+            <div class="slide-content">
+              <h2>Mountain View</h2>
+              <p>Beautiful landscape with mountains and lakes</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5pbWFsfGVufDB8fDB8fHww"
+              alt="Image 2"
+            />
+            <div class="slide-content">
+              <h2>Ocean Sunset</h2>
+              <p>Breathtaking sunset over the ocean</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img
+              src="https://media.istockphoto.com/id/599888852/photo/lion-in-savannah.jpg?s=612x612&w=0&k=20&c=gqJM1w8rcD8Qz7bkHgCp7CidaKoiRtgzx92TUv1CWdc="
+              alt="Image 3"
+            />
+            <div class="slide-content">
+              <h2>Forest Trail</h2>
+              <p>Peaceful path through a dense forest</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img
+              src="https://cms.bbcearth.com/sites/default/files/factfiles/2024-07/sloth-3.jpg"
+              alt="Image 4"
+            />
+            <div class="slide-content">
+              <h2>Desert Landscape</h2>
+              <p>Vast desert with beautiful sand dunes</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img
+              src="https://cms.bbcearth.com/sites/default/files/factfiles/2024-07/sloth-3.jpg"
+              alt="Image 4"
+            />
+            <div class="slide-content">
+              <h2>Desert Landscape</h2>
+              <p>Vast desert with beautiful sand dunes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="arrow prev" onclick="prev()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="arrow next" onclick="next()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Dots Navigation -->
+        <div class="dots" id="dots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+          <span class="dot" data-index="3"></span>
+        </div>
+      </div>
+
+      <!-- Slider Controls -->
+      <div class="controls">
+        <button class="control-btn" id="play">
+          <i class="fas fa-play"></i>
+        </button>
+        <button class="control-btn" id="pause">
+          <i class="fas fa-pause"></i>
+        </button>
+        <button class="control-btn" id="fullscreen">
+          <i class="fas fa-expand"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- This is where you'll add your JavaScript -->
+    <script>
+      let index = 0;
+      let slides = document.querySelectorAll(".slide");
+      function update() {
+        slides.forEach((e, f) => {
+          console.log(e, f);
+          e.style.transform = `translateX(-${f * 100}%)`;
+          
+        });
+      }
+
+      function prev() {
+        index--;
+        update();
+      }
+      function next() {
+        index++;
+        update();
+      }
+    </script>
+  </body>
+</html>
