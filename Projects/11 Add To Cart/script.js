@@ -82,11 +82,8 @@ const products = [
     }
   ];
   
-  products.forEach(element => {
-    
-  });
-console.log(products[0].oldPrice);
 
+localStorage.setItem()
 let count = -1;
 function addtocart(){
     count++
