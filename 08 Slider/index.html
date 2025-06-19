@@ -1,130 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Practice Image Slider</title>
+    <title>Image Slider</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- Font Awesome for icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Image Slider Practice</h1>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-      <!-- Slider Container -->
-      <div class="slider" id="slider">
-        <!-- Slides -->
-        <div class="slides" id="slides">
-          <div class="slide">
-            <img
-              src="https://t4.ftcdn.net/jpg/04/15/79/09/360_F_415790935_7va5lMHOmyhvAcdskXbSx7lDJUp0cfja.jpg"
-              alt="Image 1"
-            />
-            <div class="slide-content">
-              <h2>Mountain View</h2>
-              <p>Beautiful landscape with mountains and lakes</p>
-            </div>
-          </div>
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #e9f5f0;
+        font-family: Arial, sans-serif;
+    }
 
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5pbWFsfGVufDB8fDB8fHww"
-              alt="Image 2"
-            />
-            <div class="slide-content">
-              <h2>Ocean Sunset</h2>
-              <p>Breathtaking sunset over the ocean</p>
-            </div>
-          </div>
+    .slider-container {
+        width: 600px;
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        background: #fff;
+    }
 
-          <div class="slide">
-            <img
-              src="https://media.istockphoto.com/id/599888852/photo/lion-in-savannah.jpg?s=612x612&w=0&k=20&c=gqJM1w8rcD8Qz7bkHgCp7CidaKoiRtgzx92TUv1CWdc="
-              alt="Image 3"
-            />
-            <div class="slide-content">
-              <h2>Forest Trail</h2>
-              <p>Peaceful path through a dense forest</p>
-            </div>
-          </div>
+    .slider {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+        position: relative;
+    }
 
-          <div class="slide">
-            <img
-              src="https://cms.bbcearth.com/sites/default/files/factfiles/2024-07/sloth-3.jpg"
-              alt="Image 4"
-            />
-            <div class="slide-content">
-              <h2>Desert Landscape</h2>
-              <p>Vast desert with beautiful sand dunes</p>
-            </div>
-          </div>
-          <div class="slide">
-            <img
-              src="https://cms.bbcearth.com/sites/default/files/factfiles/2024-07/sloth-3.jpg"
-              alt="Image 4"
-            />
-            <div class="slide-content">
-              <h2>Desert Landscape</h2>
-              <p>Vast desert with beautiful sand dunes</p>
-            </div>
-          </div>
+    .slider img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        flex-shrink: 0;
+        position: absolute;
+    }
+
+    .controls {
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .controls button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        background: #000;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .controls button:hover {
+        background: #fff;
+        color: #000;
+        border: 2px solid #000;
+        transform: translateX();
+    }
+</style>
+
+<body>
+
+    <div class="slider-container">
+        <div class="slider" id="tops">
+            <img src="https://images5.alphacoders.com/109/1099869.jpg" alt="Image 1" class="img" />
+            <img src="https://wallpapercave.com/wp/wp2720655.jpg" alt="Image 2" class="img" />
+            <img src="https://w0.peakpx.com/wallpaper/73/770/HD-wallpaper-waterfall-forest-lake-landscape-nature-river-sea-thumbnail.jpg"
+                alt="Image 3" class="img" />
+            <img src="https://wallpapercave.com/wp/f8lfDGj.jpg" alt="Image 4" class="img" />
+            <img src="https://wallpapercave.com/wp/wp2033252.jpg" alt="Image 5" class="img" />
+            <img src="https://cdn.wallpapersafari.com/56/69/xUP0bY.jpg" alt="Image 6" class="img" />
         </div>
 
-        <!-- Navigation Arrows -->
-        <button class="arrow prev" onclick="prev()">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="arrow next" onclick="next()">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-
-        <!-- Dots Navigation -->
-        <div class="dots" id="dots">
-          <span class="dot active" data-index="0"></span>
-          <span class="dot" data-index="1"></span>
-          <span class="dot" data-index="2"></span>
-          <span class="dot" data-index="3"></span>
+        <div class="controls">
+            <button id="prev" onclick="privous()">⬅ Previous</button>
+            <button id="next" onclick="next()">Next ➡</button>
         </div>
-      </div>
-
-      <!-- Slider Controls -->
-      <div class="controls">
-        <button class="control-btn" id="play">
-          <i class="fas fa-play"></i>
-        </button>
-        <button class="control-btn" id="pause">
-          <i class="fas fa-pause"></i>
-        </button>
-        <button class="control-btn" id="fullscreen">
-          <i class="fas fa-expand"></i>
-        </button>
-      </div>
     </div>
 
-    <!-- This is where you'll add your JavaScript -->
     <script>
-      let index = 0;
-      let slides = document.querySelectorAll(".slide");
-      function update() {
-        slides.forEach((e, f) => {
-          console.log(e, f);
-          e.style.transform = `translateX(-${f * 100}%)`;
-          
-        });
-      }
+        let index = 0;
+        let img = document.querySelectorAll(".img")
 
-      function prev() {
-        index--;
-        update();
-      }
-      function next() {
-        index++;
-        update();
-      }
+        img.forEach((img, index) => {
+            if(index < 0) index = 0
+            if(index >= img.length) index = img.length - 1  
+            img.style.left = `${index * 100}%`
+        })
+
+        function update() {
+            img.forEach((img) => {
+                img.style.transform = `translateX(-${index * 100}%)`
+            })
+        }
+
+        function next() {
+            index++
+            update()
+        }
+        function privous() {
+            index--
+            update()
+        }
+
     </script>
-  </body>
+</body>
+
 </html>
