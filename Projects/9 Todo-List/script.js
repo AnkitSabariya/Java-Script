@@ -70,6 +70,8 @@ let count = 0;
 
 function addtodo() {
   count = document.querySelectorAll(".todo-item").length;
+  console.log("my count" + count);
+  
 
   console.log("Lenth : " + count);
 
@@ -79,7 +81,7 @@ function addtodo() {
   let newtask = document.getElementById("newtask"); // create new input with task
   if (userinput != "") {
     div.innerHTML += `   <div class="todo-item" id="div${count}">
-                                        <button class="todo-checkbox checked">✓</button>
+                                        <button class="todo-checkbox checked" onclick="savetodo(${count})">✓</button>
                                         <span  class="todo-text" id="span${count}">${count} : ${userinput}</span>
                                         <div class="todo-actions">
                                             <button class="edit-button" onclick="edittodo(${count})">
@@ -180,6 +182,7 @@ function savetodo(count) {
               </button>
               </div>
               `;
+              localStorage.setItem(`name${count}`,newspan)
 }
 function deleteAllTasks() {
   const allTodos = document.querySelectorAll(".todo-item");

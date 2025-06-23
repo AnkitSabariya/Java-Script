@@ -121,6 +121,7 @@ function addtocart(){
                         <div class="item-actions">
                             <button class="remove-btn"><i class="fas fa-trash"></i></button>
                         </div>` 
+                        localStorage.setItem("setter",JSON.stringify(cartitems))
     
 }
  
