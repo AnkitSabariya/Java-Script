@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartoon Morning & Night Theme</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        /* Morning Theme Styles */
+        body[style*="white"] {
+            background: linear-gradient(180deg, 
+                #87CEEB 0%,     /* Sky blue */
+                #98D8E8 30%,    /* Light blue */
+                #FFE4B5 60%,    /* Moccasin */
+                #90EE90 100%    /* Light green for grass */
+            ) !important;
+        }
+
+        /* Night Theme Styles */
+        body[style*="black"] {
+            background: linear-gradient(180deg, 
+                #191970 0%,     /* Midnight blue */
+                #1e1e3f 30%,    /* Dark navy */
+                #2c2c54 60%,    /* Purple navy */
+                #0f0f23 100%    /* Very dark blue */
+            ) !important;
+        }
+
+        /* Morning Text */
+        .morning-text {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            font-weight: bold;
+            color: #FF6B35;
+            text-shadow: 
+                3px 3px 0px #FFD700,
+                6px 6px 10px rgba(255, 107, 53, 0.3);
+            opacity: 1;
+            transition: all 1.5s ease-in-out;
+            animation: bounce 2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        body[style*="black"] .morning-text {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-50px);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Night Text */
+        .night-text {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%) translateY(50px);
+            font-size: 4rem;
+            font-weight: bold;
+            color: #E6E6FA;
+            text-shadow: 
+                3px 3px 0px #4169E1,
+                6px 6px 15px rgba(230, 230, 250, 0.5),
+                0 0 20px #E6E6FA;
+            opacity: 0;
+            transition: all 1.5s ease-in-out;
+            animation: glow 3s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        body[style*="black"] .night-text {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0px);
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                text-shadow: 
+                    3px 3px 0px #4169E1,
+                    6px 6px 15px rgba(230, 230, 250, 0.5),
+                    0 0 20px #E6E6FA;
+            }
+            50% { 
+                text-shadow: 
+                    3px 3px 0px #4169E1,
+                    6px 6px 15px rgba(230, 230, 250, 0.8),
+                    0 0 30px #E6E6FA,
+                    0 0 40px #E6E6FA;
+            }
+        }
+
+        /* Cartoon Sun */
+        .cartoon-sun {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            top: 10%;
+            right: 15%;
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition: all 1.5s ease-in-out;
+            animation: sunSpin 20s linear infinite;
+        }
+
+        .cartoon-sun::before {
+            content: '☀️';
+            position: absolute;
+            font-size: 120px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: drop-shadow(0 0 20px #FFD700);
+        }
+
+        body[style*="black"] .cartoon-sun {
+            opacity: 0;
+            transform: scale(0.3) translateY(200px) rotate(180deg);
+        }
+
+        @keyframes sunSpin {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1) rotate(360deg); }
+        }
+
+        /* Cartoon Moon */
+        .cartoon-moon {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            right: 15%;
+            opacity: 0;
+            transform: scale(0.3) translateY(-200px);
+            transition: all 1.5s ease-in-out;
+            animation: moonFloat 4s ease-in-out infinite;
+        }
+
+        .cartoon-moon::before {
+            content: '🌙';
+            position: absolute;
+            font-size: 100px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: drop-shadow(0 0 15px #E6E6FA);
+        }
+
+        body[style*="black"] .cartoon-moon {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        @keyframes moonFloat {
+            0%, 100% { transform: scale(1) translateY(0px); }
+            50% { transform: scale(1) translateY(-15px); }
+        }
+
+        /* Cartoon House */
+        .cartoon-house {
+            position: absolute;
+            bottom: 15%;
+            left: 20%;
+            width: 200px;
+            height: 150px;
+            opacity: 1;
+            transition: all 1.5s ease-in-out;
+            animation: houseFloat 6s ease-in-out infinite;
+        }
+
+        /* House Base */
+        .house-base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 80px;
+            background: #FF6B6B;
+            border: 4px solid #333;
+            border-radius: 10px;
+        }
+
+        /* House Roof */
+        .house-roof {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 70px solid transparent;
+            border-right: 70px solid transparent;
+            border-bottom: 60px solid #8B4513;
+            border-radius: 5px;
+        }
+
+        .house-roof::after {
+            content: '';
+            position: absolute;
+            bottom: -64px;
+            left: -74px;
+            width: 0;
+            height: 0;
+            border-left: 74px solid transparent;
+            border-right: 74px solid transparent;
+            border-bottom: 4px solid #333;
+        }
+
+        /* House Door */
+        .house-door {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 25px;
+            height: 40px;
+            background: #8B4513;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+
+        .house-door::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 3px;
+            width: 3px;
+            height: 3px;
+            background: #FFD700;
+            border-radius: 50%;
+        }
+
+        /* House Windows */
+        .house-window {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #87CEEB;
+            border: 2px solid #333;
+            border-radius: 3px;
+        }
+
+        .house-window:nth-child(4) {
+            bottom: 35px;
+            left: 20px;
+        }
+
+        .house-window:nth-child(5) {
+            bottom: 35px;
+            right: 20px;
+        }
+
+        /* Window cross */
+        .house-window::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #333;
+        }
+
+        .house-window::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #333;
+        }
+
+        /* House chimney */
+        .house-chimney {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 15px;
+            height: 30px;
+            background: #8B4513;
+            border: 2px solid #333;
+            border-radius: 3px;
+        }
+
+        .house-chimney::before {
+            content: '💨';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            animation: smoke 2s ease-in-out infinite;
+        }
+
+        @keyframes smoke {
+            0% { opacity: 1; transform: translateX(-50%) translateY(0px); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+        }
+
+        @keyframes houseFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Night mode house changes */
+        body[style*="black"] .cartoon-house {
+            filter: brightness(0.7) contrast(1.2);
+        }
+
+        body[style*="black"] .house-window {
+            background: #FFD700;
+            box-shadow: 0 0 10px #FFD700;
+        }
+
+        /* Cartoon Clouds */
+        .cartoon-clouds {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        body[style*="black"] .cartoon-clouds {
+            opacity: 0.3;
+        }
+
+        .cartoon-cloud {
+            position: absolute;
+            font-size: 60px;
+            animation: cloudDrift 25s infinite linear;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .cartoon-cloud:nth-child(1) {
+            top: 15%;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .cartoon-cloud:nth-child(2) {
+            top: 25%;
+            left: -120px;
+            animation-delay: 8s;
+            font-size: 45px;
+        }
+
+        .cartoon-cloud:nth-child(3) {
+            top: 35%;
+            left: -80px;
+            animation-delay: 15s;
+            font-size: 70px;
+        }
+
+        .cartoon-cloud::before {
+            content: '☁️';
+        }
+
+        @keyframes cloudDrift {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        /* Cartoon Stars */
+        .cartoon-stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        body[style*="black"] .cartoon-stars {
+            opacity: 1;
+        }
+
+        .cartoon-star {
+            position: absolute;
+            font-size: 20px;
+            animation: starTwinkle 3s ease-in-out infinite;
+        }
+
+        .cartoon-star::before {
+            content: '⭐';
+        }
+
+        .cartoon-star:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .cartoon-star:nth-child(2) { top: 15%; left: 80%; animation-delay: 0.5s; font-size: 15px; }
+        .cartoon-star:nth-child(3) { top: 25%; left: 20%; animation-delay: 1s; font-size: 25px; }
+        .cartoon-star:nth-child(4) { top: 30%; left: 70%; animation-delay: 1.5s; }
+        .cartoon-star:nth-child(5) { top: 40%; left: 15%; animation-delay: 0.3s; font-size: 18px; }
+        .cartoon-star:nth-child(6) { top: 45%; left: 85%; animation-delay: 0.8s; font-size: 22px; }
+        .cartoon-star:nth-child(7) { top: 20%; left: 50%; animation-delay: 1.2s; }
+        .cartoon-star:nth-child(8) { top: 35%; left: 40%; animation-delay: 0.2s; font-size: 16px; }
+        .cartoon-star:nth-child(9) { top: 50%; left: 60%; animation-delay: 0.7s; font-size: 24px; }
+        .cartoon-star:nth-child(10) { top: 55%; left: 90%; animation-delay: 1.8s; }
+        .cartoon-star:nth-child(11) { top: 12%; left: 35%; animation-delay: 2.1s; font-size: 14px; }
+        .cartoon-star:nth-child(12) { top: 28%; left: 5%; animation-delay: 2.5s; font-size: 26px; }
+        .cartoon-star:nth-child(13) { top: 42%; left: 75%; animation-delay: 1.9s; font-size: 17px; }
+        .cartoon-star:nth-child(14) { top: 18%; left: 65%; animation-delay: 0.4s; }
+        .cartoon-star:nth-child(15) { top: 52%; left: 25%; animation-delay: 1.6s; font-size: 21px; }
+
+        @keyframes starTwinkle {
+            0%, 100% { 
+                opacity: 0.4; 
+                transform: scale(1) rotate(0deg);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.3) rotate(180deg);
+            }
+        }
+
+        /* Ground/Grass */
+        .ground {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20%;
+            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
+            transition: all 1.5s ease-in-out;
+        }
+
+        body[style*="black"] .ground {
+            background: linear-gradient(180deg, #2F4F2F 0%, #1C3A1C 100%);
+        }
+
+        /* Trees */
+        .trees {
+            position: absolute;
+            bottom: 15%;
+            right: 10%;
+            font-size: 80px;
+            opacity: 1;
+            transition: all 1.5s ease-in-out;
+            animation: treesSway 4s ease-in-out infinite;
+        }
+
+        .trees::before {
+            content: '🌳🌲';
+        }
+
+        body[style*="black"] .trees {
+            filter: brightness(0.6);
+        }
+
+        @keyframes treesSway {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        /* Button Styles */
+        button {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 40px;
+            border: 4px solid #333;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Comic Sans MS', cursive;
+            z-index: 100;
+            box-shadow: 0 8px 0 #333, 0 12px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Morning button style */
+        body[style*="white"] button {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            text-shadow: 2px 2px 0px #333;
+        }
+
+        /* Night button style */
+        body[style*="black"] button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-shadow: 2px 2px 0px #333;
+        }
+
+        button:hover {
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 12px 0 #333, 0 16px 25px rgba(0,0,0,0.4);
+        }
+
+        button:active {
+            transform: translateX(-50%) translateY(2px);
+            box-shadow: 0 4px 0 #333, 0 6px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .morning-text, .night-text {
+                font-size: 2.5rem;
+                top: 15%;
+            }
+            
+            .cartoon-sun, .cartoon-moon {
+                width: 80px;
+                height: 80px;
+                top: 8%;
+                right: 10%;
+            }
+            
+            .cartoon-sun::before {
+                font-size: 80px;
+            }
+            
+            .cartoon-moon::before {
+                font-size: 70px;
+            }
+            
+            .cartoon-house {
+                left: 10%;
+                transform: scale(0.8);
+            }
+            
+            .trees {
+                font-size: 60px;
+                right: 5%;
+            }
+            
+            button {
+                padding: 12px 30px;
+                font-size: 16px;
+                bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body id="body">
+    <!-- Morning Text -->
+    <div class="morning-text">Good Morning!</div>
+    
+    <!-- Night Text -->
+    <div class="night-text">Good Night!</div>
+    
+    <!-- Cartoon Sun -->
+    <div class="cartoon-sun"></div>
+    
+    <!-- Cartoon Moon -->
+    <div class="cartoon-moon"></div>
+    
+    <!-- Ground -->
+    <div class="ground"></div>
+    
+    <!-- Cartoon House -->
+    <div class="cartoon-house">
+        <div class="house-roof"></div>
+        <div class="house-base"></div>
+        <div class="house-door"></div>
+        <div class="house-window"></div>
+        <div class="house-window"></div>
+        <div class="house-chimney"></div>
+    </div>
+    
+    <!-- Trees -->
+    <div class="trees"></div>
+    
+    <!-- Cartoon Clouds -->
+    <div class="cartoon-clouds">
+        <div class="cartoon-cloud"></div>
+        <div class="cartoon-cloud"></div>
+        <div class="cartoon-cloud"></div>
+    </div>
+    
+    <!-- Cartoon Stars -->
+    <div class="cartoon-stars">
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+        <div class="cartoon-star"></div>
+    </div>
+
+    <button id="light" onclick="dark()">Switch to Night</button>
+
+   <script src="./script.js"></script>
+</body>
+</html>
