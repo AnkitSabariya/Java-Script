@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sort Array Elements</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #f0f2f5, #dfe6ed);
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      font-size: 26px;
+      color: #222;
+    }
+
+    input[type="number"] {
+      padding: 12px;
+      margin: 6px 4px;
+      width: 120px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="number"]:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      margin: 15px 8px 5px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    #ans, #counter {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #28a745;
+      word-break: break-word;
+    }
+
+    #counter {
+      color: #ff3e00;
+    }
+
+    #inputs {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      input[type="number"] {
+        width: 100px;
+      }
+
+      .btn {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sort Array Elements</h2>
+    <input type="number" id="user" placeholder="Enter Array Size" />
+    <br />
+    <button class="btn" onclick="generateInputs()">Generate Inputs</button>
+    <div id="inputs"></div>
+    <button class="btn" onclick="calculate()">Calculate Sort</button>
+    <div id="ans"></div>
+    <div id="counter"></div>
+  </div>
+
+  <script>
+    let inputs = document.getElementById("inputs");
+    let ans = document.getElementById("ans");
+    let counter = document.getElementById("counter");
+
+    function generateInputs() {
+      inputs.innerHTML = "";
+      let size = +document.getElementById("user").value;
+      for (let i = 0; i < size; i++) {
+        let input = document.createElement("input");
+        input.placeholder = `i = ${i}`;
+        input.id = `id${i}`;
+        input.type = "number";
+        inputs.appendChild(input);
+      }
+    }
+
+    function calculate() {
+      let arr = [];
+      let size = +document.getElementById("user").value;
+
+      for (let i = 0; i < size; i++) {
+        let value = +document.getElementById(`id${i}`).value;
+        arr.push(value);
+      }
+
+      // Bubble Sort
+      for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+            [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; // Swap
+          }
+        }
+      }
+
+      ans.innerText = `Sorted Array: ${arr.join(", ")}`;
+
+      // Duplicate Detection
+      let duplicates = [];
+      counter.innerText = "";
+      for (let i = 0; i < size - 1; i++) {
+        if (arr[i] === arr[i + 1] && arr[i] !== arr[i - 1]) {
+          duplicates.push(arr[i]);
+        }
+      }
+
+      counter.innerText = duplicates.length
+        ? `Duplicate Values: ${duplicates.join(", ")}`
+        : "No Duplicates Found";
+    }
+  </script>
+</body>
+</html>

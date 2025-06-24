@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <input type="text" id="input" />
+    <button onclick="gettask()">Click</button>
+    <button onclick="cleartask()">Clear</button>
+    <ul id="ul"></ul>
+  </body>
+  <script>
+    let i = 0;
+    let ul = document.getElementById("ul");
+
+    function gettask() {
+      let input = document.getElementById("input").value;
+
+      let input2 = document.getElementById("input");
+
+      arr.push(input);
+      localStorage.setItem("I", JSON.stringify(arr));
+
+      let li = document.createElement("li");
+      li.innerText = input;
+      ul.appendChild(li);
+      input2.value = "";
+    }
+    let arr = JSON.parse(localStorage.getItem("I")) || [];
+
+    arr.forEach((element) => {
+      let li = document.createElement("li");
+      li.innerText = element;
+      ul.appendChild(li);
+    });
+    function cleartask() {
+      localStorage.clear();
+
+      ul.innerHTML = " ";
+      arr = [];
+    }
+  </script>
+</html>

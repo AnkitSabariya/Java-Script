@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sort Array Elements</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      margin: 5px;
+      width: 120px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #ans {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #28a745;
+    }
+
+    #inputs {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sort Array Elements</h2>
+    <input type="number" id="user" placeholder="Enter Array Size" />
+    <br />
+    <button onclick="generateInputs()">Generate Inputs</button>
+    <div id="inputs"></div>
+    <button onclick="calculate()">Calculate Sort</button>
+    <h1 id="ans"></h1>
+  </div>
+
+  <script>
+    let inputs = document.getElementById("inputs");
+    let ans = document.getElementById("ans");
+
+    function generateInputs() {
+      inputs.innerHTML = "";
+      let size = +document.getElementById("user").value;
+      for (let i = 0; i < size; i++) {
+        let input = document.createElement("input");
+        input.placeholder = `i = ${i}`;
+        input.id = `id${i}`;
+        input.type = "number";
+        inputs.appendChild(input);
+      }
+    }
+
+    function calculate() {
+      let arr = [];
+      let size = +document.getElementById("user").value;
+
+      for (let i = 0; i < size; i++) {
+        let value = +document.getElementById(`id${i}`).value;
+        arr.push(value);
+      }
+
+      // Bubble Sort
+      for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+            let temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+          }
+        }
+      }
+
+      ans.innerText = `Sorted Array: ${arr.join(", ")}`;
+    }
+  </script>
+</body>
+</html>
