@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark/Light Theme</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background 0.2s ease-in-out;
+      }
+
+      button {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      button:active {
+        transform: scale(0.98);
+      }
+    </style>
+  </head>
+
+  <body id="body">
+    <button id="light" onclick="dark()">black</button>
+
+    <script>
+      let body = document.getElementById("body");
+      function dark() {
+        body.style.background = "black";
+        body.innerHTML = `<button onclick="light()">White</button>`;
+        localStorage.setItem("theme", "black");
+      }
+      function light() {
+        body.style.background = "white";
+        body.innerHTML = `<button onclick="dark()">black</button>`;
+        localStorage.setItem("theme", "white");
+      }
+
+      let get = localStorage.getItem("theme");
+      if (get == "white") {
+        body.style.background = `${get}`;
+      } else {
+        body.style.background = `${get}`;
+      }
+    </script>
+  </body>
+</html>
