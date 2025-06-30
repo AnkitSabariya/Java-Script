@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clean Countdown Timer</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container fade-in">
+        <div class="header">
+            <h1 class="title">Countdown Timer</h1>
+            <p class="subtitle">Set your perfect countdown</p>
+        </div>
+
+        <div class="inputs-section">
+            <div class="inputs-grid">
+                <div class="input-group">
+                    <label class="input-label">Days</label>
+                    <input type="text" placeholder="Enter The day" id="day" />
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Hours</label>
+                    <input type="text" placeholder="Enter Hours" id="hour" />
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Minutes</label>
+                    <input type="text" placeholder="Enter Minutes" id="min" />
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Seconds</label>
+                    <input type="text" placeholder="Enter The second" id="sec" />
+                </div>
+            </div>
+        </div>
+
+        <div class="display-section">
+            <div class="display-container">
+                <div class="display-label">Time Remaining</div>
+                <h1 id="ans">Answer :</h1>
+                <div class="time-labels">
+                    <span>Days</span>
+                    <span>Hours</span>
+                    <span>Minutes</span>
+                    <span>Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="start()">Start Timer</button>
+        </div>
+    </div>
+
+    <script>
+        function start() {
+            let day =+ document.getElementById("day").value;
+            let hour =+ document.getElementById("hour").value;
+            let sec =+ document.getElementById("sec").value;
+            let min =+ document.getElementById("min").value;
+
+            console.log(day,hour,sec,min);
+
+            let ans = document.getElementById("ans");
+
+            interval = setInterval(() => {
+                if (sec === 0) {
+                    if (min > 0) {
+                        min--;
+                        sec = 59;
+                    } else if (hour > 0) {
+                        hour--;
+                        min = 59;
+                        sec = 59;
+                    } else if (day > 0) {
+                        day--;
+                        hour = 23;
+                        min = 59;
+                        sec = 59;
+                    } else {
+                        clearInterval(interval);
+                        ans.innerText = "Time's up!";
+                        return;
+                    }
+                } else {
+                    sec--;
+                }
+
+                ans.innerText = `${day} : ${hour} : ${min} : ${sec}`;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

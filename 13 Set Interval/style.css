@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: radial-gradient(ellipse at center, #0e0e0e 0%, #050505 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+    background-size: 18px 18px;
+    pointer-events: none;
+    z-index: 1;
+    animation: float 12s linear infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-6px); }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: clamp(16px, 4vw, 24px);
+    width: 100%;
+    max-width: 500px;
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 300;
+    color: #ffffff;
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    font-weight: 400;
+}
+
+.inputs-section {
+    margin-bottom: 24px;
+}
+
+.inputs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: clamp(8px, 2vw, 12px);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(0.65rem, 1.5vw, 0.7rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+input[type="text"] {
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: clamp(8px, 2vw, 10px);
+    color: #ffffff;
+    font-size: clamp(0.85rem, 2vw, 0.9rem);
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.2s ease;
+    outline: none;
+    box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.06);
+    width: 100%;
+}
+
+input[type="text"]:focus {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.display-section {
+    margin-bottom: 24px;
+}
+
+.display-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: clamp(16px, 3vw, 20px);
+    text-align: center;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.03);
+}
+
+.display-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(0.6rem, 1.5vw, 0.65rem);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+#ans {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 1.2px;
+    margin-bottom: 8px;
+}
+
+.time-labels {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(4px, 1vw, 6px);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: clamp(0.6rem, 1.5vw, 0.65rem);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    padding: clamp(10px, 2.5vw, 12px) clamp(20px, 5vw, 24px);
+    color: #ffffff;
+    font-size: clamp(0.8rem, 2vw, 0.85rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    min-width: clamp(100px, 30vw, 110px);
+    box-shadow: 0 3px 8px rgba(255, 255, 255, 0.05);
+}
+
+button:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.14));
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(255, 255, 255, 0.1);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive tweaks for medium screens */
+@media (max-width: 768px) {
+    .container {
+        padding: clamp(14px, 3.5vw, 20px);
+        margin: 8px;
+        max-width: 450px;
+    }
+
+    .inputs-grid {
+        gap: clamp(6px, 1.5vw, 10px);
+    }
+
+    input[type="text"] {
+        padding: clamp(7px, 1.8vw, 9px);
+    }
+
+    .display-container {
+        padding: clamp(14px, 2.5vw, 18px);
+    }
+
+    #ans {
+        font-size: clamp(1.1rem, 3vw, 1.4rem);
+    }
+}
+
+/* Optimized for small screens */
+@media (max-width: 480px) {
+    .container {
+        padding: clamp(12px, 3vw, 16px);
+        margin: 6px;
+        max-width: 100%;
+        border-radius: 12px;
+    }
+
+    .header {
+        margin-bottom: 16px;
+    }
+
+    .title {
+        font-size: clamp(1.4rem, 4vw, 1.6rem);
+    }
+
+    .subtitle {
+        font-size: clamp(0.75rem, 2vw, 0.8rem);
+    }
+
+    .inputs-section {
+        margin-bottom: 16px;
+    }
+
+    .inputs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: clamp(6px, 2vw, 8px);
+    }
+
+    .input-group {
+        gap: 3px;
+    }
+
+    .input-label {
+        font-size: clamp(0.6rem, 1.8vw, 0.65rem);
+        letter-spacing: 0.5px;
+    }
+
+    input[type="text"] {
+        font-size: clamp(0.8rem, 2.2vw, 0.85rem);
+        padding: clamp(6px, 2vw, 8px);
+        border-radius: 6px;
+    }
+
+    .display-section {
+        margin-bottom: 16px;
+    }
+
+    .display-container {
+        padding: clamp(12px, 2.5vw, 14px);
+        border-radius: 8px;
+    }
+
+    .display-label {
+        font-size: clamp(0.55rem, 1.5vw, 0.6rem);
+        margin-bottom: 6px;
+    }
+
+    #ans {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+    }
+
+    .time-labels {
+        font-size: clamp(0.55rem, 1.5vw, 0.6rem);
+        gap: clamp(3px, 1vw, 4px);
+        max-width: 95%;
+    }
+
+    button {
+        padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);
+        font-size: clamp(0.75rem, 2vw, 0.8rem);
+        min-width: clamp(90px, 28vw, 100px);
+        border-radius: 6px;
+    }
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

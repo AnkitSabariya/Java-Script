@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🐶 Random Dog Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #ffd700;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      background-color: #ffd700;
+      border: none;
+      border-radius: 5px;
+      color: #111;
+      font-weight: bold;
+    }
+
+    img {
+      margin-top: 30px;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .flow {
+      text-align: left;
+      max-width: 500px;
+      margin: 30px auto;
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🐾 Random Dog Viewer</h1>
+  <p>Click the button to fetch a cute dog image using Dog API 🐶</p>
+
+  <button onclick="getDog()">🐕 Show Me a Dog</button>
+
+  <!-- Output area -->
+  <div>
+    <img id="dogImage" src="" alt="Dog will appear here" />
+  </div>
+
+  <!-- Flow Explanation -->
+  <div class="flow">
+    <strong>📡 Data Flow:</strong><br>
+    🧑 User → clicks button →<br>
+    🌐 JS sends request to API →<br>
+    📡 API hits server (`dog.ceo`) →<br>
+    🔁 Server responds with JSON →<br>
+    📥 JS receives image URL →<br>
+    🖼 Image shown to user on page
+  </div>
+
+  <script>
+    function getDog() {
+      // 1️⃣ Define the Dog API endpoint
+      const url = "https://dog.ceo/api/breeds/image/random";
+
+      // 2️⃣ Start fetch request
+      fetch(url)
+        .then((res) => res.json()) // 3️⃣ Convert response to JSON
+        .then((data) => {
+          /*
+            4️⃣ Access the image URL from API response
+            API sends data like:
+            {
+              "message": "https://images.dog.ceo/breeds/shiba/n02088094_1003.jpg",
+              "status": "success"
+            }
+          */
+          const imageUrl = data.message;
+
+          // 5️⃣ Update <img> src to show the dog
+          document.getElementById("dogImage").src = imageUrl;
+        })
+        .catch((err) => {
+          // Error handling (network/API failure)
+          console.error("Fetch Error:", err);
+          alert("❌ Failed to fetch dog image.");
+        });
+    }
+  </script>
+</body>
+</html>
