@@ -83,9 +83,12 @@ const products = [
   ];
   
 
-localStorage.setItem()
+  localStorage.setItem("ok", JSON.stringify(products));
 let count = -1;
-function addtocart(){
+function addtocart(temp){
+  let get = JSON.parse(localStorage.getItem("ok"));
+  console.log(get);
+  
     count++
     let cartitems = document.getElementById("cart-items")
     cartitems.innerHTML += `<div class="cart-item">
