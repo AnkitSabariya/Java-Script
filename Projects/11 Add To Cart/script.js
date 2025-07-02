@@ -84,20 +84,26 @@ const products = [
   
 
   localStorage.setItem("ok", JSON.stringify(products));
-let count = -1;
-function addtocart(temp){
+
+function addtocart(tempid){
   let get = JSON.parse(localStorage.getItem("ok"));
-  console.log(get);
-  
-    count++
+
+   
+    let find = get.find(item=> item.id == tempid)
+    if (!find) {
+      console.error("Product not found!");
+      return;
+    }
     let cartitems = document.getElementById("cart-items")
-    cartitems.innerHTML += `<div class="cart-item">
+    let div = document.createElement("div")
+  
+    div.innerHTML += `<div class="cart-item">
                         <div class="item-image">
-                            <img src="${products[count].imageUrl}" alt="Wireless Earbuds Pro">
+                            <img src="#" alt="Wireless Earbuds Pro">
                         </div>
                         <div class="item-details">
-                            <h3>${products[count].title}</h3>
-                            <p class="item-category">${products[count].category}</p>
+                            <h3>${find.title}</h3>
+                            <p class="item-category">${find.category}</p>
                             <div class="item-rating">
                                 <div class="stars">
                                     <i class="fas fa-star"></i>
@@ -106,7 +112,7 @@ function addtocart(temp){
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <span>${products[count].rating}</span>
+                                <span>${find.rating}</span>
                             </div>
                         </div>
                         <div class="item-quantity">
@@ -118,13 +124,17 @@ function addtocart(temp){
                             </div>
                         </div>
                         <div class="item-price">
-                            <span class="current-price">${products[count].price}</span>
-                            <span class="old-price">${products[count].oldPrice}</span>
+                            <span class="current-price">${find.price}</span>
+                            <span class="old-price">${find.oldPrice}</span>
                         </div>
                         <div class="item-actions">
                             <button class="remove-btn"><i class="fas fa-trash"></i></button>
                         </div>` 
-                        localStorage.setItem("setter",JSON.stringify(cartitems))
+                        cartitems.appendChild(div)
+  
+   
+    
+                        
     
 }
  
