@@ -53,6 +53,8 @@ This repo is structured for **fast revision**, **clean UI/UX**, and **future-rea
 | 12 | 🌗 [Theme Switcher](Projects/12%20Ankit%20Change%20theme)         | Toggle dark/light theme via JS                |
 | 13 | 🎬 [Movie Search API](Projects/13%20Movie%20Search%20API)         | Search movies using OMDB API                  |
 | 14 | ☁️ [Weather API](Projects/14%20Wether%20API)                      | Real-time weather using OpenWeatherMap API    |
+| 15 | ⏰ [Clock](Projects/15%20Clock) | Real-time digital clock using JS Date & Time |
+
 
 ---
 
