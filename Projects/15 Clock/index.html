@@ -26,6 +26,7 @@
   <body>
     <div class="container">
       <h1 id="time">--:--:--</h1>
+     
     </div>
 
     <script>
@@ -36,6 +37,8 @@
       const time = document.getElementById("time");
 
       setInterval(() => {
+   
+     
         second++;
         if (second === 60) {
           min++;
@@ -58,14 +61,14 @@
         if (hour % 12 === 0) {
           displayHour = 12;
         } else {
-          displayHour = hour % 12; // 1 2 3
+          displayHour = hour % 12; 
         }
 
         let hh = displayHour.toString().padStart(2, "0");
         let mm = min.toString().padStart(2, "0");
         let ss = second.toString().padStart(2, "0");
 
-        time.innerText = `${hh}:${mm}:${ss} ${ampm}`;
+        time.innerText = `${hh}:${mm}:${ss} ${ampm} `;
       }, 1000);
     </script>
   </body>

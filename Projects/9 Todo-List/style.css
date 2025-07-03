@@ -273,15 +273,25 @@ body {
     height: min(8px, 2vw);
     background: var(--border-primary);
     border-radius: min(4px, 1vw);
+    position: relative;
+    overflow: hidden;
 }
 
 .progress-bar {
     height: 100%;
-    width: 50%;
+    width: 0%;
     background: linear-gradient(90deg, #3b82f6, #8b5cf6);
     border-radius: min(4px, 1vw);
     transition: width 0.5s ease;
+    position: absolute;
+    left: -30%;
+    animation: loaderMove 1.2s linear infinite;
 }
+@keyframes loaderMove {
+    0% { left: -30%; }
+    100% { left: 100%; }
+  }
+
 
 /* Add Todo Section */
 .add-todo-section {

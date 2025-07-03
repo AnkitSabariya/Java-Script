@@ -1,158 +1,120 @@
 let hour = 0;
 let min = 0;
-let ampm = hour >= 12 ? "PM" : "AM";
-let hour12 = hour % 12 || 12;
 
+function getFormattedTime() {
+  let ampm = hour >= 12 ? "PM" : "AM";
+  let hour12 = hour % 12 || 12;
+  return `${hour12}:${min.toString().padStart(2, "0")} ${ampm}`;
+}
+
+// ========== Typing Indicator Logic ========== //
+function iphonetyping() {
+  let input = document.getElementById("appleinput").value.trim();
+  let chat = document.getElementById("samsung-container");
+
+  const typing = chat.querySelector(".typing");
+  if (typing) typing.remove();
+
+  if (input !== "") {
+    const div = document.createElement("div");
+    div.className = "message received typing";
+    div.innerHTML = `
+      <div class="typing-indicator">
+        <span></span><span></span><span></span>
+      </div>`;
+    chat.appendChild(div);
+  }
+}
+
+function samsungtyping() {
+  let input = document.getElementById("samsunginput").value.trim();
+  let chat = document.getElementById("iphone-container");
+
+  const typing = chat.querySelector(".typing");
+  if (typing) typing.remove();
+
+  if (input !== "") {
+    const div = document.createElement("div");
+    div.className = "message received typing";
+    div.innerHTML = `
+      <div class="typing-indicator">
+        <span></span><span></span><span></span>
+      </div>`;
+    chat.appendChild(div);
+  }
+}
+
+// ============= Iphone Message ============== //
 function iphone() {
+  let msg = document.getElementById("appleinput").value.trim();
+  if (msg === "") return alert("iPhone input empty!");
 
-  let appleinput = document.getElementById("appleinput").value;
-  if (appleinput != "") {
-    // Main container
-    let chatmessages = document.getElementById("iphone-container");
-
-    // Parent For Massage Sent
-    let div = document.createElement("div");
-    div.className = "message sent";
-
-    // Child : 1
-    let p = document.createElement("p");
-    p.className = "message-content";
-    p.innerText = `${appleinput}`;
-
-    // Child : 2
-    let span = document.createElement("span");
-    span.className = "message-time";
-    min++;
-    if (min % 60 == 0) {
-      hour++;
-      min = 0;
-    } else {
-   span.innerText = `${hour12}:${min.toString().padStart(2, "0")} ${ampm}`;
-    }
-    time.innerText = `${hour12}:${min.toString().padStart(2, "0")} ${ampm}`
-
-    // container in parent
-    chatmessages.appendChild(div);
-
-    // parent In child : 1
-    div.appendChild(p);
-
-    // parent In child : 2
-    div.appendChild(span);
-
-    function samsungrecived() {
-      // Main container
-      let chatmessages = document.getElementById("samsung-container");
-
-      // Parent For Massage Sent
-      let div = document.createElement("div");
-      div.className = "message received";
-
-      // Child : 1
-      let p = document.createElement("p");
-      p.className = "message-content";
-      p.innerText = `${appleinput}`;
-
-      // Child : 2
-      let span = document.createElement("span");
-      span.className = "message-time";
-
-      span.innerText = `${hour12}:${min.toString().padStart(2, "0")} ${ampm}`;
-
-      // container in parent
-      chatmessages.appendChild(div);
-
-      // parent In child : 1
-      div.appendChild(p);
-
-      // parent In child : 2
-      div.appendChild(span);
-    }
-
-    samsungrecived();
-  } else {
-    alert("Iphone Invalid Input.......");
+  min++;
+  if (min % 60 === 0) {
+    hour++;
+    min = 0;
   }
+
+  let time = getFormattedTime();
+
+  let chat = document.getElementById("iphone-container");
+  let div = document.createElement("div");
+  div.className = "message sent";
+  div.innerHTML = `<p class="message-content">${msg}</p><span class="message-time">${time}</span>`;
+  chat.appendChild(div);
+
+  // Remove Samsung typing
+  const typing = document.querySelector("#samsung-container .typing");
+  if (typing) typing.remove();
+
+  samsungreceived(msg, time);
+  document.getElementById("appleinput").value = "";
 }
 
-// ======================= Samsung logic ==================================
+function samsungreceived(msg, time) {
+  let chat = document.getElementById("samsung-container");
+  let div = document.createElement("div");
+  div.className = "message received";
+  div.innerHTML = `<p class="message-content">${msg}</p><span class="message-time">${time}</span>`;
+  chat.appendChild(div);
+}
 
+// ============= Samsung Message ============== //
 function samsung() {
-  let timer = document.getElementById("timer")
-  let samsunginput = document.getElementById("samsunginput").value;
-  if (samsunginput != "") {
-    console.log(samsunginput);
+  let msg = document.getElementById("samsunginput").value.trim();
+  if (msg === "") return alert("Samsung input empty!");
 
-    // Main container
-    let chatmessages = document.getElementById("samsung-container");
-  
-    // Parent For Massage Sent
-    let div = document.createElement("div");
-    div.className = "message sent";
-  
-    // Child : 1
-    let p = document.createElement("p");
-    p.className = "message-content";
-    p.innerText = `${samsunginput}`;
-  
-    // Child : 2
-    let span = document.createElement("span");
-    span.className = "message-time";
-    min++;
-    if (min % 60 == 0) {
-      hour++;
-      min = 0;
-    } else {
-      span.innerText = `${hour12}:${min.toString().padStart(2, "0")} ${ampm}`;
-    }
-     
-  
-    // container in parent
-    chatmessages.appendChild(div);
-  
-    // parent In child : 1
-    div.appendChild(p);
-  
-    // parent In child : 2
-    div.appendChild(span);
-  
-    function iphonerecived() {
-      // Main container
-      let chatmessages = document.getElementById("iphone-container");
-  
-      // Parent For Massage Sent
-      let div = document.createElement("div");
-      div.className = "message received";
-  
-      // Child : 1
-      let p = document.createElement("p");
-      p.className = "message-content";
-      p.innerText = `${samsunginput}`;
-  
-      // Child : 2
-      let span = document.createElement("span");
-      span.className = "message-time";
-  
-      span.innerText = `${hour12}:${min.toString().padStart(2, "0")} ${ampm}`;
-  
-      // container in parent
-      chatmessages.appendChild(div);
-  
-      // parent In child : 1
-      div.appendChild(p);
-  
-      // parent In child : 2
-      div.appendChild(span);
-    }
-  
-    iphonerecived();
+  min++;
+  if (min % 60 === 0) {
+    hour++;
+    min = 0;
   }
-  else{
-    alert("Samsung Invalid Input.......");
-  }
-  
+
+  let time = getFormattedTime();
+
+  let chat = document.getElementById("samsung-container");
+  let div = document.createElement("div");
+  div.className = "message sent";
+  div.innerHTML = `<div class="message-content">${msg}</div><div class="message-time">${time}</div>`;
+  chat.appendChild(div);
+
+  // Remove iPhone typing
+  const typing = document.querySelector("#iphone-container .typing");
+  if (typing) typing.remove();
+
+  iphonereceived(msg, time);
+  document.getElementById("samsunginput").value = "";
 }
 
+function iphonereceived(msg, time) {
+  let chat = document.getElementById("iphone-container");
+  let div = document.createElement("div");
+  div.className = "message received";
+  div.innerHTML = `<div class="message-content">${msg}</div><div class="message-time">${time}</div>`;
+  chat.appendChild(div);
+}
+
+// ================= Theme Logic ================ //
 function toggleTheme() {
   const body = document.body;
   const themeIcon = document.querySelector(".theme-icon");
@@ -168,7 +130,6 @@ function toggleTheme() {
   }
 }
 
-// Load saved theme
 document.addEventListener("DOMContentLoaded", function () {
   const savedTheme = localStorage.getItem("theme");
   const themeIcon = document.querySelector(".theme-icon");

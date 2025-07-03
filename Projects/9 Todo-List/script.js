@@ -71,11 +71,13 @@ let count = 0;
 function addtodo() {
   count = document.querySelectorAll(".todo-item").length;
   console.log("my count" + count);
-  
+  const bar = document.getElementById("bar");
+  bar.style.width = `${count+10}%`;
 
   console.log("Lenth : " + count);
 
-  let userinput = document.getElementById("userinput").value; // main Input Value
+  let userinput = document.getElementById("userinput").value.trim(); // main Input Value
+  let get = JSON.parse(localStorage.getItem(`task${count}`));
   let removeinput = document.getElementById("userinput"); // remove input value
   let div = document.createElement(`div`);
   let newtask = document.getElementById("newtask"); // create new input with task
@@ -103,7 +105,13 @@ function addtodo() {
                                                     </div>`;
     newtask.appendChild(div);
     removeinput.value = "";
+    if (userinput != "") {
+      
+      localStorage.setItem(`task${count}`,JSON.stringify(userinput))
+    }
+    // console.log(`Saved name${count}:`, JSON.parse(localStorage.getItem(`task${count}`)));
     count++;
+    
   } else {
     alert("Please add task sir jiiii");
   }
@@ -156,12 +164,14 @@ function edittodo(count) {
                                                     `;
 }
 function savetodo(count) {
+  console.log("saved successfully");
+  
   let ankit = document.getElementById(`div${count}`);
   let newspan = document.getElementById(`newspan${count}`).value;
 
   console.log(ankit);
 
-  ankit.innerHTML = `<button class="todo-checkbox checked" >✓</button>
+  ankit.innerHTML = `<button class="todo-checkbox checked" onclick="savetodo(${count})">✓</button>
 <span class="todo-text" id="span${count}">${newspan}</span>
 
   <div class="todo-actions">
@@ -182,7 +192,7 @@ function savetodo(count) {
               </button>
               </div>
               `;
-              localStorage.setItem(`name${count}`,newspan)
+            
 }
 function deleteAllTasks() {
   const allTodos = document.querySelectorAll(".todo-item");

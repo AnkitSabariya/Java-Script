@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>iPhone Todo Interface</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="theme-color" content="#ffffff" id="theme-color">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Theme color for Android Chrome -->
+<meta name="theme-color" content="#ffffff" id="theme-color" />
+
+<!-- For Android full-screen experience -->
+<meta name="mobile-web-app-capable" content="yes" />
+
+<!-- For iOS full-screen experience -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
     <script src="./script.js"></script>
 </head>
 
@@ -69,7 +76,7 @@
 
                             <!-- Progress Bar -->
                             <div class="progress-container">
-                                <div class="progress-bar"></div>
+                                <div class="progress-bar" id="bar"></div>
                             </div>
                         </div>
 
@@ -127,8 +134,8 @@
     </div>
 <!-- Link Js -->
     <script src="./script.js">
-       
     </script>
+   
 </body>
 
 </html>
