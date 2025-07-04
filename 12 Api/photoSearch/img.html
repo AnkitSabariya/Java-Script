@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📸 Unsplash City Wallpaper Viewer</title>
+  <style>
+    :root {
+      --blue: #0051c3;
+      --light-blue: #4e9bff;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --white: #ffffffdd;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background: linear-gradient(to right top, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      color: var(--white);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      color: var(--white);
+      margin-bottom: 30px;
+      text-shadow: 0 2px 6px #00000070;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .search-bar input {
+      padding: 12px 16px;
+      width: 280px;
+      font-size: 16px;
+      border: 2px solid var(--light-blue);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      backdrop-filter: blur(8px);
+      outline: none;
+    }
+
+    .search-bar input::placeholder {
+      color: #cccccc;
+    }
+
+    .search-bar button {
+      padding: 12px 18px;
+      font-size: 16px;
+      font-weight: bold;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .search-bar button:hover {
+      background: #003a91;
+    }
+
+    .image-card {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      backdrop-filter: blur(14px);
+      transition: 0.3s;
+    }
+
+    .image-card img {
+      width: 100%;
+      display: block;
+      max-height: 480px;
+      object-fit: cover;
+    }
+
+    .info {
+      padding: 24px;
+    }
+
+    .info p {
+      margin: 10px 0;
+      font-size: 16px;
+      color: var(--white);
+    }
+
+    .info strong {
+      width: 140px;
+      display: inline-block;
+      color: var(--light-blue);
+    }
+
+    a {
+      color: #4e9bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #error {
+      text-align: center;
+      color: #ff6a6a;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🖼️ City Wallpaper Viewer (Unsplash)</h1>
+
+  <!-- 🔍 City input and search -->
+  <div class="search-bar">
+    <input type="text" id="input" placeholder="Enter city or place name..." />
+    <button onclick="fetchImage()">Search</button>
+  </div>
+
+  <!-- 🖼️ Image + info card -->
+  <div class="image-card" id="imageCard" style="display: none;">
+    <img src="" id="unsplashImage" alt="City Image" />
+    <div class="info">
+      <p><strong>Photographer:</strong> <a href="#" target="_blank" id="photographer">Loading...</a></p>
+      <p><strong>Photo URL:</strong> <a href="#" target="_blank" id="photoUrl">View on Unsplash</a></p>
+      <p><strong>Description:</strong> <span id="description">Loading...</span></p>
+      <p><strong>Location:</strong> <span id="location">Loading...</span></p>
+    </div>
+  </div>
+
+  <!-- ❌ Error Message -->
+  <div id="error"></div>
+
+<script>
+  const accessKey = "TRgIbxVc1pLM4Ub4fKjHToj5l2eE9WAUhSFGo_4iae4";
+
+  function fetchImage() {
+    const query = document.getElementById("input").value.trim();
+    const error = document.getElementById("error");
+    const card = document.getElementById("imageCard");
+
+    if (!query) {
+      error.textContent = "❗ Please enter a city or place name.";
+      card.style.display = "none";
+      return;
+    }
+
+    error.textContent = "";
+    card.style.display = "none";
+
+    // 🔗 Fetching image from Unsplash API
+    fetch(`https://api.unsplash.com/search/photos?query=${query}&orientation=landscape&per_page=1&client_id=${accessKey}`)
+      .then(res => res.json())
+      .then(data => {
+        if (!data.results || data.results.length === 0) {
+          error.textContent = `No image found for "${query}". Try another location.`;
+          return;
+        }
+
+        const photo = data.results[0];
+
+        document.getElementById("unsplashImage").src = photo.urls.full;
+        document.getElementById("unsplashImage").alt = photo.alt_description || "City Image";
+        document.getElementById("photographer").innerText = photo.user.name;
+        document.getElementById("photographer").href = photo.user.links.html;
+        document.getElementById("photoUrl").href = photo.links.html;
+        document.getElementById("description").innerText = photo.alt_description || "No description available";
+        document.getElementById("location").innerText = photo.location?.name || "Not specified";
+
+        card.style.display = "block";
+        console.log("✅ Photo object:", photo);
+      })
+      .catch(err => {
+        console.error("❌ API error:", err);
+        error.textContent = "An error occurred while fetching the image.";
+      });
+  }
+</script>
+
+</body>
+</html>

@@ -68,7 +68,10 @@ document.addEventListener("DOMContentLoaded", function () {
 // ==================== Todo- List Logic ==================================
 let count = 0;
 
+
 function addtodo() {
+
+  
   count = document.querySelectorAll(".todo-item").length;
   console.log("my count" + count);
   const bar = document.getElementById("bar");
@@ -77,7 +80,7 @@ function addtodo() {
   console.log("Lenth : " + count);
 
   let userinput = document.getElementById("userinput").value.trim(); // main Input Value
-  let get = JSON.parse(localStorage.getItem(`task${count}`));
+
   let removeinput = document.getElementById("userinput"); // remove input value
   let div = document.createElement(`div`);
   let newtask = document.getElementById("newtask"); // create new input with task
@@ -105,11 +108,9 @@ function addtodo() {
                                                     </div>`;
     newtask.appendChild(div);
     removeinput.value = "";
-    if (userinput != "") {
-      
-      localStorage.setItem(`task${count}`,JSON.stringify(userinput))
-    }
-    // console.log(`Saved name${count}:`, JSON.parse(localStorage.getItem(`task${count}`)));
+   
+  
+ 
     count++;
     
   } else {
