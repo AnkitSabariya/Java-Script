@@ -35,8 +35,8 @@ Real-time weather + stunning city backgrounds — all in one glassmorphic UI.
 ## 🛠️ Built With
 
 - HTML, CSS, JavaScript
-- 🌐 WeatherAPI
-- 🖼️ Unsplash API
+- 🌐 [WeatherAPI](https://www.weatherapi.com)  
+- 🖼️ [Unsplash API](https://unsplash.com/developers)  
 
 ---
 
