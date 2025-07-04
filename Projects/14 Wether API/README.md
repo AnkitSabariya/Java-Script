@@ -2,7 +2,7 @@
 
 Real-time weather + stunning city backgrounds — all in one glassmorphic UI.
 
-🔗 **Live Demo:** [https://java-script-jh9n.vercel.app/](https://java-script-jh9n.vercel.app/)
+🔗 **Live Demo:** []()
 
 ---
 
