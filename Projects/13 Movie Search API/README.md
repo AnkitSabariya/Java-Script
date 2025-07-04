@@ -2,8 +2,8 @@
 
 Search movies & series with real-time results — in a beautiful dark cinematic UI.
 
-🔗 **Live Demo:** [https://java-script-jh9n.vercel.app/](https://java-script-jh9n.vercel.app/)
-
+🔗 **Live Demo:** [https://java-script-grm4.vercel.app/](
+https://java-script-grm4.vercel.app/)
 ---
 
 ## 🔍 How it works
