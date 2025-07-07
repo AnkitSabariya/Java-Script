@@ -95,8 +95,8 @@ const products = [
 ];
 
 localStorage.setItem("products", JSON.stringify(products));
-
 function addtocart(tempid) {
+ 
   let allProducts = JSON.parse(localStorage.getItem("products")) || [];
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -111,18 +111,23 @@ function addtocart(tempid) {
 
   // Step 2: Check if product already in cart
   let exist = cart.find((item) => item.id == tempid);
-
+  
+  
   if (exist) {
     exist.qty += 1;
+    
   } else {
     // Clone the product and add qty
     let newProduct = { ...product, qty: 1 };
     cart.push(newProduct);
   }
-
+  
+  console.log("exist" ,exist);
   // Step 3: Save updated cart
   localStorage.setItem("cart", JSON.stringify(cart));
   alert("✅ Added to cart");
+  console.log(cart);
+  
 }
 
 // localStorage.clear();

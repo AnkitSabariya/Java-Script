@@ -281,14 +281,15 @@
     </footer>
     <script src="./script.js"></script>
     <script>
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
       console.log(cart);
+      let Subtotal = 0;
 
       let cartitems = document.getElementById("cart-items");
-      cart.forEach(element => {
+      cart.forEach((element, index) => {
         let div = document.createElement("div");
 
-      div.innerHTML += `<div class="cart-item">
+        div.innerHTML += `<div class="cart-item">
                         <div class="item-image">
                             <img src="${element.imageUrl}" alt="Wireless Earbuds Pro">
                         </div>
@@ -309,22 +310,59 @@
                         <div class="item-quantity">
                             <label>Qty:</label>
                             <div class="quantity-controls">
-                                <button class="qty-btn minus">-</button>
-                                <input type="number" value="1" min="1">
-                                <button class="qty-btn plus">+</button>
+                                <button class="qty-btn minus" onclick="decrement(${index})">-</button>
+                                <input  id="quntanity${index}" value="${element.qty}" min="1" readonly>
+                                <button class="qty-btn plus" onclick="increment(${index})">+</button>
                             </div>
                         </div>
                         <div class="item-price">
-                            <span class="current-price">${element.price}</span>
-                            <span class="old-price">${element.oldPrice}</span>
+                            <span class="current-price" id="price${index}">${element.price}</span>
+                            <span >${element.price}</span>
                         </div>
                         <div class="item-actions">
                             <button class="remove-btn"><i class="fas fa-trash"></i></button>
                         </div>`;
-      cartitems.appendChild(div);
+        cartitems.appendChild(div);
       });
-     
-      
+      function increment(temp) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let quntanity = document.getElementById(`quntanity${temp}`);
+        let a = +quntanity.value;
+        if (0 <= a && a < 10) {
+          a++;
+          quntanity.value = a;
+          
+          // Update cart array
+          cart[temp].qty = a;
+          productTotal(temp)
+          // Save to localStorage
+          localStorage.setItem("cart", JSON.stringify(cart));
+        } else {
+          quntanity.style.background = "red";
+        }
+      }
+
+      function decrement(temp) {
+        let quntanity = document.getElementById(`quntanity${temp}`);
+        let a = +quntanity.value;
+        if (0 < a) {
+          a--
+          quntanity.value = a;
+          quntanity.style.background = "white";
+           // Update cart array
+          cart[temp].qty = a;
+          // Save to localStorage
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+      }
+      function productTotal(temp) { 
+        let productprice = document.getElementById(`price${temp}`)
+        mul =+ productprice.innerText
+        productprice.innerText = temp * mul
+        console.log("total",productprice);
+        console.log("total",temp);
+        
+      }
     </script>
   </body>
 </html>
