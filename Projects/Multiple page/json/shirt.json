@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Cotton Shirt",
+    "price": 799,
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Denim Shirt",
+    "price": 899,
+    "image": "https://via.placeholder.com/150"
+  }
+]
