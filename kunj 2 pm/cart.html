@@ -1,165 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart - TechHub</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar" id="main-navbar">
-        <div class="container">
-            <div class="nav-content" id="nav-content">
-                <div class="logo" id="site-logo">
-                    <h2>TechHub</h2>
-                </div>
-                <div class="nav-links" id="navigation-links">
-                    <a href="electronics.html" id="electronics-link">Electronics</a>
-                    <a href="audio-gaming.html" id="audio-gaming-link">Audio & Gaming</a>
-                    <a href="photography-fitness.html" id="photography-fitness-link">Photography & Fitness</a>
-                    <a href="cart.html" class="cart-btn active" id="cart-link">
-                        <i class="fas fa-shopping-cart"></i>
-                        Cart
-                    </a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="nav-content" id="nav-content">
+          <div class="logo" id="site-logo">
+            <h2>TechHub</h2>
+          </div>
+          <div class="nav-links" id="navigation-links">
+            <a href="electronics.html" id="electronics-link">Electronics</a>
+            <a href="audio-gaming.html" id="audio-gaming-link"
+              >Audio & Gaming</a
+            >
+            <a href="photography-fitness.html" id="photography-fitness-link"
+              >Photography & Fitness</a
+            >
+            <a href="cart.html" class="cart-btn active" id="cart-link">
+              <i class="fas fa-shopping-cart"></i>
+              Cart
+            </a>
+          </div>
         </div>
+      </div>
     </nav>
 
     <!-- Breadcrumb -->
     <section class="breadcrumb" id="breadcrumb-section">
-        <div class="container">
-            <div class="breadcrumb-nav" id="breadcrumb-navigation">
-                <a href="electronics.html" id="home-breadcrumb">
-                    <i class="fas fa-home"></i> Home
-                </a>
-                <i class="fas fa-chevron-right"></i>
-                <span id="current-page-breadcrumb">Shopping Cart</span>
-            </div>
+      <div class="container">
+        <div class="breadcrumb-nav" id="breadcrumb-navigation">
+          <a href="electronics.html" id="home-breadcrumb">
+            <i class="fas fa-home"></i> Home
+          </a>
+          <i class="fas fa-chevron-right"></i>
+          <span id="current-page-breadcrumb">Shopping Cart</span>
         </div>
+      </div>
     </section>
 
     <!-- Cart Section -->
     <section class="cart-section" id="main-cart-section">
-        <div class="container">
-            <h1 class="page-title" id="cart-page-title">Shopping Cart</h1>
-            <div class="cart-layout" id="cart-main-layout">
-                <!-- Cart Items -->
-                <div class="cart-items" id="cart-items-container">
-                    <div class="cart-header" id="cart-items-header">
-                        <h2 id="cart-items-title">Your Items (<span id="total-items-count">4</span>)</h2>
-                    </div>
-                    
-                    <!-- Cart Item 1 -->
-                    <div class="cart-item" id="cart-item-0">
-                        <div class="item-image" id="item-image-0">
-                            <img src="https://www.corseca.in/cdn/shop/files/Listing-1_6452ec0d-5fdb-460b-b071-4de4b0c0f105.png?v=1727951475" alt="Wireless Earbuds Pro" id="item-img-0">
-                        </div>
-                        <div class="item-details" id="item-details-0">
-                            <h3 id="item-title-0">Wireless Earbuds Pro</h3>
-                            <p class="item-category" id="item-category-0">Audio</p>
-                            <div class="item-rating" id="item-rating-0">
-                                <div class="stars" id="item-stars-0">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <span id="item-rating-text-0">(4.9)</span>
-                            </div>
-                        </div>
-                        <div class="item-quantity" id="item-quantity-section-0">
-                            <label id="qty-label-0">Qty:</label>
-                            <div class="quantity-controls" id="qty-controls-0">
-                                <button class="qty-btn minus" onclick="decrement(0)" id="decrease-btn-0">-</button>
-                                <input id="quantity0" value="1" min="1" readonly>
-                                <button class="qty-btn plus" onclick="increment(0)" id="increase-btn-0">+</button>
-                            </div>
-                        </div>
-                        <div class="item-price" id="item-price-section-0">
-                            <span class="current-price" id="price0">$149.99</span>
-                            <span id="unit-price-0">$149.99</span>
-                        </div>
-                        <div class="item-actions" id="item-actions-0">
-                            <button class="remove-btn" id="remove-btn-0">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Cart Summary -->
-                <div class="cart-summary" id="cart-summary-container">
-                    <div class="summary-card" id="order-summary-card">
-                        <h3 id="summary-title">Order Summary</h3>
-                        <div class="summary-row" id="subtotal-row">
-                            <span id="subtotal-label">Subtotal (<span id="summary-item-count">4</span> items)</span>
-                            <span id="subtotal-amount">$4,349.96</span>
-                        </div>
-                        <div class="summary-row" id="shipping-row">
-                            <span id="shipping-label">Shipping</span>
-                            <span class="free" id="shipping-amount">Free</span>
-                        </div>
-                        <div class="summary-row" id="tax-row">
-                            <span id="tax-label">Tax</span>
-                            <span id="tax-amount">$347.99</span>
-                        </div>
-                        <div class="summary-divider" id="summary-divider"></div>
-                        <div class="summary-row total" id="total-row">
-                            <span id="total-label">Total</span>
-                            <span id="total-amount">$4,697.95</span>
-                        </div>
-                        <div class="promo-code" id="promo-code-section">
-                            <input type="text" placeholder="Enter promo code" id="promo-code-input">
-                            <button class="apply-btn" id="apply-promo-btn">Apply</button>
-                        </div>
-                        <button class="checkout-btn" id="checkout-button">
-                            <i class="fas fa-lock"></i>
-                            Proceed to Checkout
-                        </button>
-                        <div class="payment-methods" id="payment-methods-section">
-                            <p id="payment-methods-text">We accept:</p>
-                            <div class="payment-icons" id="payment-icons-container">
-                                <i class="fab fa-cc-visa" id="visa-icon"></i>
-                                <i class="fab fa-cc-mastercard" id="mastercard-icon"></i>
-                                <i class="fab fa-cc-paypal" id="paypal-icon"></i>
-                                <i class="fab fa-apple-pay" id="apple-pay-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <h1 class="page-title" id="cart-page-title">Shopping Cart</h1>
+        <div class="cart-layout" id="cart-main-layout">
+          <!-- Cart Items -->
+          <div class="cart-items" id="container">
+            <div class="cart-header" id="cart-items-header">
+              <h2 id="cart-items-title">
+                Your Items (<span id="total-items-count">4</span>)
+              </h2>
             </div>
-            <div class="continue-shopping" id="continue-shopping-section">
-                <a href="electronics.html" class="continue-btn" id="continue-shopping-btn">
-                    <i class="fas fa-arrow-left"></i>
-                    Continue Shopping
-                </a>
+
+            <!-- Cart Item 1 -->
+          </div>
+
+          <!-- Cart Summary -->
+          <div class="cart-summary" id="cart-summary-container">
+            <div class="summary-card" id="order-summary-card">
+              <h3 id="summary-title">Order Summary</h3>
+              <div class="summary-row" id="subtotal-row">
+                <span id="subtotal-label"
+                  >Subtotal (<span id="summary-item-count">4</span> items)</span
+                >
+                <span id="subtotal-amount">$4,349.96</span>
+              </div>
+              <div class="summary-row" id="shipping-row">
+                <span id="shipping-label">Shipping</span>
+                <span class="free" id="shipping-amount">Free</span>
+              </div>
+              <div class="summary-row" id="tax-row">
+                <span id="tax-label">Tax</span>
+                <span id="tax-amount">$347.99</span>
+              </div>
+              <div class="summary-divider" id="summary-divider"></div>
+              <div class="summary-row total" id="total-row">
+                <span id="total-label">Total</span>
+                <span id="total-amount">$4,697.95</span>
+              </div>
+              <div class="promo-code" id="promo-code-section">
+                <input
+                  type="text"
+                  placeholder="Enter promo code"
+                  id="promo-code-input"
+                />
+                <button class="apply-btn" id="apply-promo-btn">Apply</button>
+              </div>
+              <button class="checkout-btn" id="checkout-button">
+                <i class="fas fa-lock"></i>
+                Proceed to Checkout
+              </button>
+              <div class="payment-methods" id="payment-methods-section">
+                <p id="payment-methods-text">We accept:</p>
+                <div class="payment-icons" id="payment-icons-container">
+                  <i class="fab fa-cc-visa" id="visa-icon"></i>
+                  <i class="fab fa-cc-mastercard" id="mastercard-icon"></i>
+                  <i class="fab fa-cc-paypal" id="paypal-icon"></i>
+                  <i class="fab fa-apple-pay" id="apple-pay-icon"></i>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+        <div class="continue-shopping" id="continue-shopping-section">
+          <a
+            href="electronics.html"
+            class="continue-btn"
+            id="continue-shopping-btn"
+          >
+            <i class="fas fa-arrow-left"></i>
+            Continue Shopping
+          </a>
+        </div>
+      </div>
     </section>
 
     <script>
-      
-
-        // Log all cart elements for reference
-        console.log('Cart page loaded with 4 items');
-        console.log('All elements have unique IDs for easy targeting');
-        
-        // Example of accessing elements
-        const cartTitle = document.getElementById('cart-page-title');
-        const totalItems = document.getElementById('total-items-count');
-        const subtotalAmount = document.getElementById('subtotal-amount');
-        
-        console.log('Cart elements:', {
-            title: cartTitle.textContent,
-            items: totalItems.textContent,
-            subtotal: subtotalAmount.textContent
-        });
+      // Local storage get Data
+      let getdata = JSON.parse(localStorage.getItem("setdata")) || [];
+      let container = document.getElementById("container");
+      getdata.forEach((e) => {
+        let div = document.createElement("div")
+     div.innerHTML += `   <div class="cart-item" id="cart-item-0">
+              <div class="item-image" id="item-image-0">
+                <img
+                  src="${e.imageUrl}"
+                  alt="Wireless Earbuds Pro"
+                  id="item-img-0"
+                />
+              </div>
+              <div class="item-details" id="item-details-0">
+                <h3 id="item-title-0">${e.title}</h3>
+                <p class="item-category" id="item-category-0">${e.category}</p>
+                <div class="item-rating" id="item-rating-0">
+                  <div class="stars" id="item-stars-0">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <span id="item-rating-text-0">(${e.rating})</span>
+                </div>
+              </div>
+              <div class="item-quantity" id="item-quantity-section-0">
+                <label id="qty-label-0">Qty:</label>
+                <div class="quantity-controls" id="qty-controls-0">
+                  <button
+                    class="qty-btn minus"
+                    onclick="decrement(0)"
+                    id="decrease-btn-0"
+                  >
+                    -
+                  </button>
+                  <input id="quantity0" value="${e.qty}" min="1" readonly />
+                  <button
+                    class="qty-btn plus"
+                    onclick="increment(0)"
+                    id="increase-btn-0"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <div class="item-price" id="item-price-section-0">
+                <span class="current-price" id="price0">$149.99</span>
+                <span id="unit-price-0">${e.price}</span>
+              </div>
+              <div class="item-actions" id="item-actions-0">
+                <button class="remove-btn" id="remove-btn-0">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>`;
+            container.appendChild(div)
+      });
+        //  localStorage.clear();
     </script>
-</body>
+  </body>
 </html>
