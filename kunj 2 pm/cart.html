@@ -62,7 +62,7 @@
           <div class="cart-items" id="container">
             <div class="cart-header" id="cart-items-header">
               <h2 id="cart-items-title">
-                Your Items (<span id="total-items-count">4</span>)
+                Your Items (<span id="total-items-count">0</span>)
               </h2>
             </div>
 
@@ -75,9 +75,9 @@
               <h3 id="summary-title">Order Summary</h3>
               <div class="summary-row" id="subtotal-row">
                 <span id="subtotal-label"
-                  >Subtotal (<span id="summary-item-count">4</span> items)</span
+                  >Subtotal (<span id="summary-item-count">0</span> items)</span
                 >
-                <span id="subtotal-amount">$4,349.96</span>
+                <span id="subtotal-amount">$0</span>
               </div>
               <div class="summary-row" id="shipping-row">
                 <span id="shipping-label">Shipping</span>
@@ -85,12 +85,12 @@
               </div>
               <div class="summary-row" id="tax-row">
                 <span id="tax-label">Tax</span>
-                <span id="tax-amount">$347.99</span>
+                <span id="tax-amount">$0</span>
               </div>
               <div class="summary-divider" id="summary-divider"></div>
               <div class="summary-row total" id="total-row">
                 <span id="total-label">Total</span>
-                <span id="total-amount">$4,697.95</span>
+                <span id="total-amount">$0</span>
               </div>
               <div class="promo-code" id="promo-code-section">
                 <input
@@ -137,14 +137,19 @@
       let container = document.getElementById("container");
 
       let getData = JSON.parse(localStorage.getItem(`setdata`)) || [];
+
       getData.forEach((e, i) => {
-        container.innerHTML += `  <div class="cart-item" id="cart-item-${i}">
+        container.innerHTML += `  <div class="cart-item" id="cart-item-${e.id}">
                         <div class="item-image" id="item-image-0">
-                            <img src="${e.imageUrl}" alt="Wireless Earbuds Pro" id="item-img-0">
+                            <img src="${
+                              e.imageUrl
+                            }" alt="Wireless Earbuds Pro" id="item-img-0">
                         </div>
                         <div class="item-details" id="item-details-0">
                             <h3 id="item-title-0">${e.title}</h3>
-                            <p class="item-category" id="item-category-0">${e.category}</p>
+                            <p class="item-category" id="item-category-0">${
+                              e.category
+                            }</p>
                             <div class="item-rating" id="item-rating-0">
                                 <div class="stars" id="item-stars-0">
                                     <i class="fas fa-star"></i>
@@ -153,23 +158,31 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <span id="item-rating-text-0">(${e.rating})</span>
+                                <span id="item-rating-text-0">(${
+                                  e.rating
+                                })</span>
                             </div>
                         </div>
                         <div class="item-quantity" id="item-quantity-section-0">
                             <label id="qty-label-0">Qty:</label>
                             <div class="quantity-controls" id="qty-controls-0">
                                 <button class="qty-btn minus" onclick="decrement(${i})" id="decrease-btn-0">-</button>
-                                <input id="quantity${i}" value="${e.qty}" min="1" readonly>
+                                <input id="quantity${i}" value="${
+          e.qty
+        }" min="1" readonly>
                                 <button class="qty-btn plus" onclick="increment(${i})" id="increase-btn-0">+</button>
                             </div>
                         </div>
                         <div class="item-price" id="item-price-section-0">
-                            <span class="current-price" id="price${i}">${e.price * e.qty}</span>
+                            <span class="current-price" id="price${i}">${(
+          e.price * e.qty
+        ).toFixed(2)}</span>
                             <span id="unitprice${i}">${e.price}</span>
                         </div>
                         <div class="item-actions" id="item-actions-0">
-                            <button class="remove-btn" id="remove-btn-0" onclick="deletecard(${i})">
+                            <button class="remove-btn" id="remove-btn-0" onclick="deletecard(${
+                              e.id
+                            })">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
@@ -177,17 +190,26 @@
 `;
       });
       // Quantanity increment Or Decrement
+      updatesummary();
       function decrement(index) {
         let quantity = document.getElementById(`quantity${index}`);
         let value = +quantity.value;
         let price = document.getElementById(`price${index}`);
-        let unitprice = +document.getElementById(`unitprice${index}`).innerText;
+        let unitprice = parseFloat(
+          document.getElementById(`unitprice${index}`).innerText
+        );
 
         if (value > 1) {
           value -= 1;
+          getData[index].qty = value;
         }
         quantity.value = value;
-        price.innerText = `$${(unitprice * value).toFixed(2)}`;
+
+        let total = unitprice * value;
+        price.innerText = `${total.toFixed(2)}`;
+
+        localStorage.setItem("setdata", JSON.stringify(getData));
+        updatesummary();
       }
       function increment(index) {
         let quantity = document.getElementById(`quantity${index}`);
@@ -196,26 +218,64 @@
         let unitprice = +document.getElementById(`unitprice${index}`).innerText;
         if (value < 10) {
           value += 1;
+          getData[index].qty = value;
         }
 
-         quantity.value = value;
-        price.innerText = `$${(unitprice * value).toFixed(2)}`;
+        quantity.value = value;
+        let total = unitprice * value;
+        price.innerText = `${total.toFixed(2)}`;
+        localStorage.setItem("setdata", JSON.stringify(getData));
+        updatesummary();
+      }
+      function updatesummary() {
+        let subtotal = 0;
+        let totalitems = 0;
+        let totalbill = 0;
+        let text = 0;
+        let billprice = document.getElementById("subtotal-amount");
+        let billitems = document.getElementById("summary-item-count");
+        let billamount = document.getElementById("total-amount");
+        let billtext = document.getElementById("tax-amount");
+        let youritems = document.getElementById("total-items-count");
+
+        getData.forEach((item) => {
+          subtotal += item.price * item.qty;
+          totalitems += item.qty;
+        });
+        text = subtotal * 0.18;
+        totalbill = subtotal + text;
+
+        billitems.innerText = totalitems;
+        billprice.innerText = subtotal.toFixed(2);
+        billtext.innerText = text.toFixed(2);
+        billamount.innerText = totalbill.toFixed(2);
+        youritems.innerText = getData.length;
       }
 
       // Delet forme Display + Local storage
-      function deletecard(index) {
-        let getData = JSON.parse(localStorage.getItem(`setdata`)) || [];
-        getData.splice(index, 1);
-        localStorage.setItem(`setdata`, JSON.stringify(getData));
+      function deletecard(id) {
+        //   const idx = getData.findIndex(x => x.id === id);
 
-        let removeitem = document.getElementById(`cart-item-${index}`);
-        removeitem.remove();
-      }
-        function Deleteall(){
-           let container = document.getElementById("container");
-           container.innerHTML = ""
-        localStorage.removeItem("setdata");
+        // getData.splice(index, 1);
+        // localStorage.setItem(`setdata`, JSON.stringify(getData));
+
+        // let removeitem = document.getElementById(`cart-item-${index}`);
+        // removeitem.remove();
+        // updatesummary();
+        const idx = getData.findIndex((x) => x.id === id);
+        if (idx !== -1) {
+          getData.splice(idx, 1);
+          localStorage.setItem(`setdata`, JSON.stringify(getData));
+          document.getElementById(`cart-item-${id}`).remove();
+          updatesummary();
         }
+      }
+      function Deleteall() {
+        let container = document.getElementById("container");
+        container.innerHTML = "";
+        localStorage.removeItem("setdata");
+        updatesummary();
+      }
     </script>
   </body>
 </html>
