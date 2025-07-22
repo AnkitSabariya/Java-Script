@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise Example</title>
+  </head>
+  <body>
+    <!-- 🔑 PROMISE KEYPOINTS -->
+
+    <!-- 
+    ✅ 1️⃣ Promise kya hota hai?
+    Ek special JS object hai jo future mein koi async kaam complete hone ka vada karta hai.
+    Promise ke teen states hote hain:
+      - Pending  : Kaam abhi chal raha hai
+      - Fulfilled: Kaam ho gaya (resolve)
+      - Rejected : Kaam fail ho gaya (reject)
+
+    ✅ 2️⃣ Kyun use hota hai?
+    Jab koi kaam turant nahi hota (API, timeout, network), toh uska result future mein milta hai. 
+    Promise se hum usko handle kar sakte hain.
+
+    ✅ 3️⃣ Kaise handle karte hain?
+      - .then() => Jab Promise RESOLVE hota hai (success)
+      - .catch() => Jab Promise REJECT hota hai (error)
+      - .finally() => Hamesha chalega, chahe success ya fail ho
+
+    ✅ 4️⃣ RETURN kyun zaroori hai?
+    Agar function new Promise return nahi karega toh bahar .then()/.catch() use nahi ho payega.
+    Return ka matlab: Promise ko bahar bhejna.
+
+    ✅ 5️⃣ Kaise banta hai?
+    new Promise() banake uske andar resolve() ya reject() call karte hain condition ke hisaab se.
+    -->
+
+    <script>
+      // 👉 Ye function iceCream promise return karta hai
+      function iceCream(flavour) {
+        console.log("⏳ Order receive hogaya! Ice Cream bana rahe hain...");
+
+        // Promise banake return kar rahe hain
+        return new Promise((resolve, reject) => {
+          // Thoda delay lagane ke liye setTimeout use kiya
+          setTimeout(() => {
+            if (flavour !== "") {
+              // Agar flavour diya gaya hai toh resolve (success)
+              resolve("✅ Here is your Vanilla Ice Cream!");
+            } else {
+              // Agar kuch nahi diya toh reject (fail)
+              reject("❌ Sorry, only Vanilla is available right now.");
+            }
+          }, 2000); // 2 second delay
+        });
+      }
+
+      // 👉 Promise call kar rahe hain aur handle kar rahe hain
+      iceCream("vanilla")
+        .then((success) => {
+          // Jab Promise resolve hota hai toh ye chalega
+          console.log("THEN : ", success);
+        })
+        .catch((fail) => {
+          // Jab Promise reject hota hai toh ye chalega
+          console.log("CATCH : ", fail);
+        })
+        .finally(() => {
+          // Jo bhi ho, ye hamesha chalega
+          console.log("FINALLY : Thank you for ordering! 🍽️");
+        });
+    </script>
+  </body>
+</html>
