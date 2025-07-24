@@ -16,28 +16,32 @@ This repo is structured for **fast revision**, **clean UI/UX**, and **future-rea
 ## 📁 Folder Structure Overview
 
 <details>
-<summary>🧪 <strong>Basic JavaScript Practice</strong> (Click to expand)</summary>
+<summary>🧩 <strong>JavaScript Master Folder</strong> (Click to expand)</summary>
 
-| #   | 📂 Folder Name                                      | 📄 Description                            |
-| --- | --------------------------------------------------- | ----------------------------------------- |
-| 00  | [About Introduction](000%20About%20Introduction)    | Repo intro, usage guide                   |
-| 01  | [Basic Task](00%20Basic%20Task)                     | `console.log`, basic syntax, output       |
-| 02  | [Operators](01%20Operators)                         | Arithmetic, logical, comparison operators |
-| 03  | [Variable & Datatype](02%20Variable%20&%20Datatype) | let, const, var, typeof                   |
-| 04  | [For Loop](03%20For%20Loop)                         | Looping with counter examples             |
-| 05  | [Function](04%20Function)                           | Declaration, expression, return           |
-| 06  | [Recursion](05%20Recursion)                         | Recursive function logic + dry run        |
-| 07  | [If-Else](06%20if-else)                             | Conditionals, nested condition            |
-| 08  | [Array Methods](07%20ArrayMethods)                  | map, filter, reduce, push/pop             |
-| 09  | [Slider](08%20Slider)                               | Manual slider using JS logic              |
-| 10  | [Error Handle](09%20Error-Handle)                   | try/catch, error object                   |
-| 11  | [jQuery Validation](10%20JQuary%20Validation)       | Form validation using jQuery              |
-| 12  | [Local Storage](11%20Local%20Storage)               | setItem, getItem, removeItem              |
-| 13  | [API Basics](12%20Api)                              | fetch, async/await with placeholder API   |
-| 14  | [Set Interval](13%20Set%20Interval)                 | Auto-increment logic, setInterval         |
-| 15  | [Data Attributes](14%20Data-attributes)             | DOM `data-*` usage with counters          |
+| #    | 📂 **Folder Name**                                   | 📄 **Description**                             |
+| ---- | ---------------------------------------------------- | ---------------------------------------------- |
+| 000  | [About Introduction](000%20About%20Introduction)     | Repo intro, usage guide, purpose               |
+| 00   | [Basic Task](00%20Basic%20Task)                      | `console.log` basics, test syntax              |
+| 01   | [Operators](01%20Operators)                          | Arithmetic, logical, comparison                |
+| 02   | [Variable & Datatype](02%20Variable%20&%20Datatype)  | `let`, `const`, `var`, `typeof` usage          |
+| 03   | [For Loop](03%20For%20Loop)                          | `for` loop, break, continue                    |
+| 04   | [Function](04%20Function)                            | Declared & expression functions, `return`      |
+| 05   | [Recursion](05%20Recursion)                          | Factorial, nested recursion, dry run           |
+| 06   | [If-Else](06%20if-else)                              | Basic conditions, nested, ternary              |
+| 07   | [Array Methods](07%20ArrayMethods)                   | `map`, `filter`, `reduce`, `push/pop`          |
+| 08   | [Slider](08%20Slider)                                | Manual slider/carousel logic                   |
+| 09   | [Error-Handle](09%20Error-Handle)                    | `try/catch/finally`, custom error              |
+| 10   | [JQuery Validation](10%20JQuary%20Validation)        | Basic form validation with jQuery              |
+| 11   | [Local Storage](11%20Local%20Storage)                | `setItem`, `getItem`, `removeItem`             |
+| 12   | [API Basics](12%20Api)                               | `fetch` API, dummy JSONPlaceholder             |
+| 13   | [Timing Functions](13%20Set%20Interval)              | `setInterval` & `setTimeout` usage             |
+| 14   | [Data Attributes](14%20data-attributes)              | `data-*` attributes, dynamic dataset           |
+| 15   | [CSS Loader](15%20Css%20Loder)                       | Skeleton UI, spinner, best practice            |
+| 16   | [Promise](16%20Promise)                              | `new Promise()`, `.then()`, `.catch()` basics  |
+| 17   | [Async-Await](17%20async-await)                      | Modern `async/await` usage, error handling     |
 
 </details>
+
 
 ---
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Perfect Skeleton Loader Counter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex flex-col items-center justify-center min-h-screen">
+    <!-- Counter -->
+    <h1 id="h1" class="text-3xl font-mono mb-4 text-gray-700">0s</h1>
+
+    <!-- Card Container -->
+    <div id="card" class="w-80 rounded-lg shadow-lg overflow-hidden bg-white">
+      <!-- Skeleton Loader -->
+      <div id="skeleton" class="animate-pulse">
+        <div class="h-48 bg-gray-300"></div>
+        <div class="p-4">
+          <div class="h-4 bg-gray-300 rounded w-3/4 mb-2"></div>
+          <div class="h-4 bg-gray-300 rounded w-1/2"></div>
+        </div>
+      </div>
+
+      <!-- Actual Content (Hidden Initially) -->
+      <div id="content" class="hidden">
+        <img
+          id="card-img"
+          alt="Loaded Image"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-4">
+          <h2 class="text-lg font-semibold mb-2">Awesome Place</h2>
+          <p class="text-gray-600">
+            This content appears only when image fully loads.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let count = 0;
+      const skeleton = document.getElementById("skeleton");
+      const content = document.getElementById("content");
+      const img = document.getElementById("card-img");
+      const h1 = document.getElementById("h1");
+
+      let intervalID;
+
+      function wait() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            img.setAttribute(
+              "src",
+              "https://d17thj9kqp1mkn.cloudfront.net/strapi-assets-tech_a34b41e7f9.jpg"
+            );
+            img.onload = resolve; // ✅ Wait until real load
+          }, 3000);
+        });
+      }
+
+      async function watch() {
+        // Start counter every 1 sec
+        intervalID = setInterval(() => {
+          count++;
+          h1.innerText = `${count}s`;
+        }, 1000);
+
+        await wait(); // Wait for image
+
+        clearInterval(intervalID); // stop counter
+
+        // Final show
+        skeleton.classList.add("hidden");
+        content.classList.remove("hidden");
+      }
+
+      watch();
+    </script>
+  </body>
+</html>
