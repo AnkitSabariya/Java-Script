@@ -47,6 +47,11 @@
 | 🔒 **encodeURI()** | URI ko encode karta hai | `encodeURI("https://site.com/page one");` |
 | 🔒 **encodeURIComponent()** | URI component ko encode karta hai | `encodeURIComponent("page one");` |
 
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
+
 ---
 
 ## 🔢 Number Methods
@@ -58,6 +63,12 @@
 | 🎯 **toPrecision()** | Specific precision me format karta hai | `(3.1415).toPrecision(3); // "3.14"` |
 | 🚫 **isNaN()** | NaN check karta hai | `Number.isNaN(NaN); // true` |
 | 🔢 **isInteger()** | Integer check karta hai | `Number.isInteger(4); // true` |
+
+
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -77,6 +88,10 @@
 | 🔡 **toLowerCase()** | Lowercase me convert karta hai | `"ANKIT".toLowerCase(); // "ankit"` |
 | 🔠 **toUpperCase()** | Uppercase me convert karta hai | `"ankit".toUpperCase(); // "ANKIT"` |
 | ✂️ **trim()** | Extra spaces remove karta hai | `"  hi  ".trim(); // "hi"` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -100,6 +115,10 @@
 | 🔍 **find()** | First match element deta hai | `[1,2,3].find(x=>x>1); // 2` |
 | 🗂 **sort()** | Array sort karta hai | `[3,1,2].sort(); // [1,2,3]` |
 | 🔃 **reverse()** | Order reverse karta hai | `[1,2,3].reverse(); // [3,2,1]` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -116,6 +135,10 @@
 | 📅 **getMonth()** | Month deta hai (0–11) | `new Date().getMonth();` |
 | ⏳ **getTime()** | Timestamp deta hai | `new Date().getTime();` |
 | 📅 **toDateString()** | Readable date deta hai | `new Date().toDateString();` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 ## 🧮 Math Methods
@@ -139,6 +162,10 @@
 |----------|------|---------|
 | 📄 **JSON.stringify()** | Object ko JSON string me convert karta hai | `JSON.stringify({a:1}); // '{"a":1}'` |
 | 📄 **JSON.parse()** | JSON string ko JS object me convert karta hai | `JSON.parse('{"a":1}'); // {a:1}` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -151,6 +178,10 @@
 | 📊 **console.table()** | Data ko table format me print karta hai | `console.table([{a:1,b:2}]);` |
 | ⏱ **console.time()** | Timer start karta hai | `console.time("t");` |
 | ⏱ **console.timeEnd()** | Timer stop karta hai | `console.timeEnd("t");` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -164,6 +195,10 @@
 | 🔒 **Object.freeze()** | Object ko immutable banata hai | `Object.freeze({a:1});` |
 | 🔓 **Object.seal()** | New props add/remove nahi hote, par modify ho sakte | `Object.seal({a:1});` |
 | 🔍 **hasOwnProperty()** | Check karta hai key object me hai ya nahi | `{a:1}.hasOwnProperty("a"); // true` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -180,6 +215,10 @@
 | ➕ **add()** | Value add karta hai | `s.add(3);` |
 | ❌ **delete()** | Value remove karta hai | `s.delete(1);` |
 | 🔍 **has()** | Value exist karta hai ya nahi | `s.has(2); // true` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -190,6 +229,10 @@
 | ⚡ **Promise.race()** | Sabse pehle resolve/reject hone wala return karta hai | `Promise.race([p1,p2]);` |
 | 📋 **Promise.allSettled()** | Sab promises ka status return karta hai | `Promise.allSettled([p1,p2]);` |
 | ✅ **Promise.any()** | Pehla fulfill hone wala return karta hai | `Promise.any([p1,p2]);` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -199,6 +242,10 @@
 | 🔑 **Symbol()** | Unique value banata hai | `let id=Symbol("id");` |
 | 🔄 **Symbol.iterator** | Iterable banata hai | `[1,2][Symbol.iterator]();` |
 | 🔄 **Symbol.asyncIterator** | Async iterable banata hai | `obj[Symbol.asyncIterator]();` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -210,6 +257,10 @@
 | 📝 **set** | Property write intercept karta hai | 
 | 🔄 **Reflect.get()** | Property read karta hai | `Reflect.get(obj,"a");` |
 | 🔄 **Reflect.set()** | Property set karta hai | `Reflect.set(obj,"a",10);` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -226,6 +277,10 @@
 | 💾 **localStorage.getItem()** | Data read karta hai | `localStorage.getItem("key");` |
 | 🗑 **localStorage.removeItem()** | Key delete karta hai | `localStorage.removeItem("key");` |
 | 🌍 **fetch()** | HTTP request karta hai | `fetch(url).then(r=>r.json());` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 ## 🛡 Error Handling & Exceptions
@@ -236,6 +291,10 @@
 | ⚠️ **throw** | Custom error throw karta hai | `throw new Error("Something went wrong");` |
 | 📝 **Error** | Error object banata hai | `new Error("msg");` |
 | 📂 **TypeError, ReferenceError** | Specific error types | `throw new TypeError("Wrong type");` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -246,6 +305,10 @@
 | 🔁 **setInterval()** | Repeatedly function chalata hai given interval me | `setInterval(()=>console.log("Tick"),1000);` |
 | ⏹ **clearTimeout()** | setTimeout cancel karta hai | `let id=setTimeout(...); clearTimeout(id);` |
 | ⏹ **clearInterval()** | setInterval cancel karta hai | `let id=setInterval(...); clearInterval(id);` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -255,6 +318,10 @@
 | 📅 **Intl.DateTimeFormat()** | Date ko locale format me dikhata hai | `new Intl.DateTimeFormat("hi-IN").format(new Date());` |
 | 💰 **Intl.NumberFormat()** | Number ko currency/locale format me dikhata hai | `new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(2500);` |
 | 🔡 **Intl.Collator()** | String comparison locale-specific karta hai | `new Intl.Collator("de").compare("ä","z");` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -264,6 +331,10 @@
 | ⏱ **performance.now()** | High-resolution timestamp deta hai | `let t=performance.now();` |
 | ⏱ **performance.mark()** | Performance mark create karta hai | `performance.mark("start");` |
 | ⏱ **performance.measure()** | Do marks ke beech ka time measure karta hai | `performance.measure("duration","start","end");` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -272,6 +343,10 @@
 |----------|------|---------|
 | 📥 **navigator.clipboard.readText()** | Clipboard se text read karta hai | `navigator.clipboard.readText().then(console.log);` |
 | 📤 **navigator.clipboard.writeText()** | Text ko clipboard me copy karta hai | `navigator.clipboard.writeText("Hello");` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -282,6 +357,10 @@
 | 📦 **Blob()** | Raw data represent karta hai | `new Blob(["Hello"],{type:"text/plain"});` |
 | 🔗 **URL.createObjectURL()** | Blob/File ka temporary URL banata hai | `URL.createObjectURL(blob);` |
 | ❌ **URL.revokeObjectURL()** | Object URL free karta hai | `URL.revokeObjectURL(url);` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -293,6 +372,10 @@
 | 🖊 **strokeRect()** | Rectangle outline draw karta hai | `ctx.strokeRect(10,10,50,50);` |
 | ✏️ **beginPath() / moveTo() / lineTo() / stroke()** | Custom shapes draw karta hai | `ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(50,50); ctx.stroke();` |
 | 🎨 **fillText()** | Text draw karta hai | `ctx.fillText("Hello",10,50);` |
+<p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
 
 ---
 
@@ -307,3 +390,8 @@
 - Math → `abs`, `round`, `max`, `min`, `random`
 - JSON → `stringify`, `parse`
 - Web APIs → `querySelector`, `addEventListener`, `localStorage`, `fetch`
+ <p align="center">
+  <a href="#-table-of-contents">⬆️ <b>Back to Top</b> ⬆️</a>
+</p>
+
+
