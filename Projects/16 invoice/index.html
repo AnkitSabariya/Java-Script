@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧾 Invoice - Shakti Studio</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar no-print">Shakti Studio 📸 — Invoice</div>
+
+    <div class="invoice-box" id="invoice">
+      <div class="header">
+        <div class="left">
+          <h2>🧾 Invoice #SS2025-001</h2>
+          <p><strong>Date:</strong> 5th Aug 2025</p>
+          <p><strong>Client:</strong> Ankit Sharma</p>
+        </div>
+        <div class="right">
+          <p>
+            <strong>Shakti Studio</strong><br />
+            📍 Azamgarh, UP<br />
+            📞 +91-9876543210<br />
+            ✉️ info@shaktistudio.in
+          </p>
+        </div>
+      </div>
+
+      <table>
+        <tr>
+          <th>Service</th>
+          <th>Qty</th>
+          <th>Rate</th>
+          <th>Total</th>
+        </tr>
+        <tr>
+          <td>Wedding Photography</td>
+          <td>1</td>
+          <td>₹60,000</td>
+          <td>₹60,000</td>
+        </tr>
+        <tr>
+          <td>Drone Coverage</td>
+          <td>1</td>
+          <td>₹10,000</td>
+          <td>₹10,000</td>
+        </tr>
+        <tr>
+          <td>Album Printing</td>
+          <td>1</td>
+          <td>₹7,000</td>
+          <td>₹7,000</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="3" style="text-align: right">Grand Total</td>
+          <td>₹77,000</td>
+        </tr>
+      </table>
+
+      <div class="footer-note">
+        Thank you for choosing <strong>Shakti Studio</strong> 🙏 <br />
+        Quality Memories, Delivered With Passion.
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn">
+      <button class="print-btn no-print" onclick="window.print()">
+        🖨️ Print Invoice
+      </button>
+      <button class="download-btn no-print" onclick="downloadPDF()">
+        📥 Download PDF
+      </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      function downloadPDF() {
+        const element = document.querySelector(".invoice-box"); // invoice div
+        const opt = {
+          margin: 0.5, // inch
+          filename: "ShaktiStudio_Invoice.pdf", // output filename
+          image: { type: "jpeg", quality: 0.98 }, // convert to high-quality image first
+          html2canvas: { scale: 2 }, // sharp rendering
+          jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+        };
+
+        html2pdf().set(opt).from(element).save(); // convert and auto download
+      }
+    </script>
+  </body>
+</html>

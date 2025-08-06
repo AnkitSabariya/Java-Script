@@ -1,11 +1,26 @@
 let hour = 0;
 let min = 0;
+let clock1 = document.getElementById("timer1");
+let clock2 = document.getElementById("timer2");
 
 function getFormattedTime() {
+  const now = new Date(); // ✅ yahi pe fresh Date()
+  let hour = now.getHours();
+  let min = now.getMinutes();
   let ampm = hour >= 12 ? "PM" : "AM";
   let hour12 = hour % 12 || 12;
   return `${hour12}:${min.toString().padStart(2, "0")} ${ampm}`;
 }
+
+
+function updateClock() {
+  clock1.innerText = getFormattedTime();
+  clock2.innerText = getFormattedTime();
+}
+
+
+updateClock(); 
+setInterval(updateClock, 1000);
 
 // ========== Typing Indicator Logic ========== //
 function iphonetyping() {
@@ -49,12 +64,6 @@ function iphone() {
   let msg = document.getElementById("appleinput").value.trim();
   if (msg === "") return alert("iPhone input empty!");
 
-  min++;
-  if (min % 60 === 0) {
-    hour++;
-    min = 0;
-  }
-
   let time = getFormattedTime();
 
   let chat = document.getElementById("iphone-container");
@@ -83,12 +92,6 @@ function samsungreceived(msg, time) {
 function samsung() {
   let msg = document.getElementById("samsunginput").value.trim();
   if (msg === "") return alert("Samsung input empty!");
-
-  min++;
-  if (min % 60 === 0) {
-    hour++;
-    min = 0;
-  }
 
   let time = getFormattedTime();
 

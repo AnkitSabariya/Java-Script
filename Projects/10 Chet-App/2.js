@@ -14,7 +14,7 @@ function iphonetyping() {
                   <span></span>
                 </div>
               </div>`;
-              chatmessages.appendChild(div)
+  chatmessages.appendChild(div)
   console.log("Input is focused");
 }
 
