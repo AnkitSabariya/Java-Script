@@ -1,6 +1,4 @@
-## 1 chat app logic pending
 
-## 2 push split...
 
 <div align="center">
 
