@@ -2,33 +2,34 @@
 
 ## 2 push split...
 
-<h1 align="center">
-  <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="Javascript" width="50" height="50" style="vertical-align: middle;"/>
-  JavaScript Projects & Practice by Ankit
-</h1>
-<p align="center">
-  <!-- Core Languages -->
+<div align="center">
+
+<img src="https://techstack-generator.vercel.app/js-icon.svg" alt="JavaScript Logo" width="70" height="70" />
+
+<h1>JavaScript Projects & Practice by Ankit</h1>
+
+<p>
+  🚀 <strong>16+ Projects</strong> — Sleek UI/UX • Real-world APIs • Fully deployed on  
+  <img src="https://api.iconify.design/logos:vercel.svg" height="16" style="vertical-align: middle;"/> 
+</p>
+
+<p>
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black"/>
   <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white"/>
   <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white"/>
-  
-  <!-- Libraries & Frameworks -->
   <img src="https://img.shields.io/badge/jQuery-0769AD?logo=jquery&logoColor=white"/>
-  
-  <!-- Functions & API Work -->
   <img src="https://img.shields.io/badge/Fetch%20API-005571?logo=javascript&logoColor=white"/>
   <img src="https://img.shields.io/badge/JSON-000000?logo=json&logoColor=white"/>
-  
-
   <img src="https://img.shields.io/badge/LocalStorage-FFA500?logo=googlechrome&logoColor=black"/>
   <img src="https://img.shields.io/badge/OOP-2C3E50?logo=codeforces&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Flipkart%20Clone-2874F0?logo=flipkart&logoColor=white"/>
- <img src="https://img.shields.io/badge/Deployed%20on-Vercel-000000?logo=vercel&logoColor=white"/>
 </p>
 
+</div>
+<p align="center">
+  Your one-stop JavaScript learning hub — from <strong>core concepts</strong> to <strong>advanced projects</strong>.  
+  Built for <strong>fast revision</strong>, <strong>clean design</strong>, and <strong>future-ready practice</strong>.
+</p>
 
-Welcome to my complete JavaScript learning journey.
-This repo is structured for **fast revision**, **clean UI/UX**, and **future-ready practice** — from **basics to projects & APIs**.
 
 ---
 
@@ -68,9 +69,9 @@ This repo is structured for **fast revision**, **clean UI/UX**, and **future-rea
 ---
 
 ## 📂 Projects List
-> 🚀 **Live on Vercel**  
-> <img src="https://img.shields.io/badge/Deployed%20on-Vercel-000000?logo=vercel&logoColor=white"/>  
-> All **16 projects** below are **fully deployed** and accessible online. Click **Project name** to try them instantly!  
+## 📂 Live Projects
+> Deploy on <img src="https://api.iconify.design/logos:vercel.svg" height="14"/> — click a project to open instantly.
+
 
 | 🔢  | 💡 Project                                                       | 📄 Description                                |
 | --- | ---------------------------------------------------------------- | --------------------------------------------- |
