@@ -10,7 +10,7 @@
 
 <p>
   🚀 <strong>16+ Projects</strong> — Sleek UI/UX • Real-world APIs • Fully deployed on  
-  <img src="https://api.iconify.design/logos:vercel.svg" height="16" style="vertical-align: middle;"/> 
+ <img src="https://img.shields.io/badge/Live%20on-Vercel-000000?logo=vercel&logoColor=white"/>
 </p>
 
 <p>
@@ -26,9 +26,11 @@
 
 </div>
 <p align="center">
-  Your one-stop JavaScript learning hub — from <strong>core concepts</strong> to <strong>advanced projects</strong>.  
+  👋 <strong>Welcome!</strong> This is your one-stop JavaScript learning hub — from <strong>core concepts</strong> to <strong>advanced projects</strong>.  
+  Each project name in the list below is clickable — it will take you directly to the code, where you'll also find the <em>live deployment link</em> in its README.  
   Built for <strong>fast revision</strong>, <strong>clean design</strong>, and <strong>future-ready practice</strong>.
 </p>
+
 
 
 ---
@@ -69,10 +71,6 @@
 ---
 
 ## 📂 Projects List
-## 📂 Live Projects
-> Deploy on <img src="https://api.iconify.design/logos:vercel.svg" height="14"/> — click a project to open instantly.
-
-
 | 🔢  | 💡 Project                                                       | 📄 Description                                |
 | --- | ---------------------------------------------------------------- | --------------------------------------------- |
 | 01  | 🏠 [Homepage](Projects/1%20homepage)                             | Basic homepage layout using HTML & CSS        |
