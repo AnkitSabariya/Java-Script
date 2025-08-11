@@ -6,6 +6,25 @@
   <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="Javascript" width="50" height="50" style="vertical-align: middle;"/>
   JavaScript Projects & Practice by Ankit
 </h1>
+<p align="center">
+  <!-- Core Languages -->
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black"/>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white"/>
+  
+  <!-- Libraries & Frameworks -->
+  <img src="https://img.shields.io/badge/jQuery-0769AD?logo=jquery&logoColor=white"/>
+  
+  <!-- Functions & API Work -->
+  <img src="https://img.shields.io/badge/Fetch%20API-005571?logo=javascript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JSON-000000?logo=json&logoColor=white"/>
+  
+
+  <img src="https://img.shields.io/badge/LocalStorage-FFA500?logo=googlechrome&logoColor=black"/>
+  <img src="https://img.shields.io/badge/OOP-2C3E50?logo=codeforces&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Flipkart%20Clone-2874F0?logo=flipkart&logoColor=white"/>
+ <img src="https://img.shields.io/badge/Deployed%20on-Vercel-000000?logo=vercel&logoColor=white"/>
+</p>
 
 
 Welcome to my complete JavaScript learning journey.
@@ -39,6 +58,9 @@ This repo is structured for **fast revision**, **clean UI/UX**, and **future-rea
 | 15   | [CSS Loader](15%20Css%20Loder)                       | Skeleton UI, spinner, best practice            |
 | 16   | [Promise](16%20Promise)                              | `new Promise()`, `.then()`, `.catch()` basics  |
 | 17   | [Async-Await](17%20async-await)                      | Modern `async/await` usage, error handling     |
+| 18   | [OOP](18%20OOP)                                      | Object Oriented Programming concepts (`constructor`, `inheritance`,`Encapsultattion`, `polymorphism`) |
+| 19   | [Built in FS](Built%20in%20FS)                       | Practice with built-in JavaScript functions    |
+| 20   | [PDF](PDF)                                           | Collection of PDF notes and documentation — Beginner Level JavaScript Questions, Global Functions (Number, String, Array, Math, Date, JSON, Console), jQuery Methods, DOM Events, and Multiple Inheritance |
 
 </details>
 
@@ -46,6 +68,9 @@ This repo is structured for **fast revision**, **clean UI/UX**, and **future-rea
 ---
 
 ## 📂 Projects List
+> 🚀 **Live on Vercel**  
+> <img src="https://img.shields.io/badge/Deployed%20on-Vercel-000000?logo=vercel&logoColor=white"/>  
+> All **16 projects** below are **fully deployed** and accessible online. Click **Project name** to try them instantly!  
 
 | 🔢  | 💡 Project                                                       | 📄 Description                                |
 | --- | ---------------------------------------------------------------- | --------------------------------------------- |
@@ -64,17 +89,27 @@ This repo is structured for **fast revision**, **clean UI/UX**, and **future-rea
 | 13  | 🎬 [Movie Search API](Projects/13%20Movie%20Search%20API)        | Search movies using OMDB API                  |
 | 14  | ☁️ [Weather API](Projects/14%20Wether%20API)                     | Real-time weather using OpenWeatherMap API    |
 | 15  | ⏰ [Clock](Projects/15%20Clock)                                  | Real-time digital clock using JS Date & Time  |
+| 16  | 🧾  [Invoice](16%20invoice)                                       | Invoice template with HTML, CSS, and JS       |
+
+
 
 ---
 
-## 🧠 Learning Focus
 
-- ✔️ Hands-on JavaScript coding
-- ✔️ Project-based learning
-- ✔️ DOM, API, LocalStorage
-- ✔️ Frontend mini tools and logic
+## 🚀 Featured Big Project
+
+### 🛍️ [Flipkart Clone](https://github.com/AnkitSabariya/Flipcart_Clone)  
+
+A complete **JavaScript E-Commerce platform** inspired by Flipkart, featuring:  
+- 📦 Product listings with images & pricing  
+- 🛒 Add-to-cart and checkout flow  
+- 🔍 Search & filter functionality  
+- 📱 Fully responsive UI for mobile & desktop  
+
+> This is my **largest JavaScript project** showcasing advanced DOM handling, localStorage, and real-world UI/UX patterns.
 
 ---
+
 
 ## 🔗 Quick Access
 
