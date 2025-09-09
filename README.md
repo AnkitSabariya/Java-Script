@@ -73,7 +73,7 @@
 | --- | ---------------------------------------------------------------- | --------------------------------------------- |
 | 01  | 🏠 [Homepage](Projects/1%20homepage)                             | Basic homepage layout using HTML & CSS        |
 | 02  | 🗂️ [Cards from JSON](Projects/2%20Card%20using%20JASON%20Format) | Create UI cards dynamically from data         |
-| 03  | 📊 [Average Finder](Projects/3%20Aeverage%20Finder)              | User input + average result logic in JS       |
+| 03  | 📊 [Average Finder](Projects/3%20Average%20Finder)              | User input + average result logic in JS       |
 | 04  | 🔐 [Login Page](Projects/4%20Login%20page)                       | Responsive login form with validation         |
 | 05  | 🌈 [Gradient Generator](Projects/5%20Gradient%20Generator)       | Random CSS gradients using JS                 |
 | 06  | 📚 [Result Calculator](Projects/6%20School%20Marks%20Result)     | School marks calculation + UI table           |
