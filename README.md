@@ -87,7 +87,7 @@
 | 13  | 🎬 [Movie Search API](Projects/13%20Movie%20Search%20API)        | Search movies using OMDB API                  |
 | 14  | ☁️ [Weather API](Projects/14%20Wether%20API)                     | Real-time weather using OpenWeatherMap API    |
 | 15  | ⏰ [Clock](Projects/15%20Clock)                                  | Real-time digital clock using JS Date & Time  |
-| 16  | 🧾  [Invoice](https://github.com/AnkitSabariya/Java-Script/tree/main/Projects/16%20invoice)                                       | Invoice template with HTML, CSS, and JS       |
+| 16  | 🧾  [Invoice](Projects/16%20invoice)                                       | Invoice template with HTML, CSS, and JS       |
 
 
 
