@@ -73,8 +73,7 @@
 | --- | ---------------------------------------------------------------- | --------------------------------------------- |
 | 01  | 🏠 [Homepage](Projects/1%20homepage)                             | Basic homepage layout using HTML & CSS        |
 | 02  | 🗂️ [Cards from JSON](Projects/2%20Card%20using%20JASON%20Format) | Create UI cards dynamically from data         |
-| 03  | 📊 [Average Finder](Projects/3%20Average%20Finder) | User input + average result logic in JS |
-
+| 03  | 📊 [Average Finder](Projects/3%20Aeverage%20Finder)              | User input + average result logic in JS       |
 | 04  | 🔐 [Login Page](Projects/4%20Login%20page)                       | Responsive login form with validation         |
 | 05  | 🌈 [Gradient Generator](Projects/5%20Gradient%20Generator)       | Random CSS gradients using JS                 |
 | 06  | 📚 [Result Calculator](Projects/6%20School%20Marks%20Result)     | School marks calculation + UI table           |
@@ -87,7 +86,7 @@
 | 13  | 🎬 [Movie Search API](Projects/13%20Movie%20Search%20API)        | Search movies using OMDB API                  |
 | 14  | ☁️ [Weather API](Projects/14%20Wether%20API)                     | Real-time weather using OpenWeatherMap API    |
 | 15  | ⏰ [Clock](Projects/15%20Clock)                                  | Real-time digital clock using JS Date & Time  |
-| 16  | 🧾  [Invoice](Projects/16%20invoice)                                       | Invoice template with HTML, CSS, and JS       |
+| 16  | 🧾  [Invoice](16%20invoice)                                       | Invoice template with HTML, CSS, and JS       |
 
 
 
