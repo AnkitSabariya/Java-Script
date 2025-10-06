@@ -87,7 +87,7 @@
 | 14  | ☁️ [Weather API](Projects/14%20Wether%20API)                     | Real-time weather using OpenWeatherMap API    |
 | 15  | ⏰ [Clock](Projects/15%20Clock)                                  | Real-time digital clock using JS Date & Time  |
 | 16  | 🧾  [Invoice](Projects/16%20invoice)                                       | Invoice template with HTML, CSS, and JS       |
-| 17  | 🎲 [Guess No.](Projects/17%20Guess%20No)                                  | Guess the number game with HTML, CSS, and JS |
+| 17  | 🎲 [Guess No.](Projects/17%20Guess%20No.)                                  | Guess the number game with HTML, CSS, and JS |
 
 
 
